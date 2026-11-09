@@ -74,3 +74,6 @@
 	path = external/boost__container_hash
 	url = https://github.com/boostorg/container_hash.git
 	branch = develop
+[submodule "external/jclin168__sflat_hash_map"]
+	path = external/jclin168__sflat_hash_map
+	url = https://github.com/jclin168/sflat_hash_map.git

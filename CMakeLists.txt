@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.9)
+cmake_minimum_required(VERSION 3.14)
 project (map_benchmark)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -12,10 +12,14 @@ list(APPEND FOLLY_CXX_FLAGS "-DNDEBUG -march=native")
 #SET(CMAKE_CXX_FLAGS_RELEASE "-O3")
 #list(APPEND FOLLY_CXX_FLAGS "-O3")
 
-SET(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_EXE_LINKER_FLAGS}")
-#SET(CMAKE_STATIC_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_STATIC_LINKER_FLAGS}")
-SET(MAKE_MODULE_LINKER_FLAGS "-fuse-ld=gold ${MAKE_MODULE_LINKER_FLAGS}")
-SET(CMAKE_SHARED_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_SHARED_LINKER_FLAGS}")
+# gold links faster, when it is installed
+find_program(LD_GOLD ld.gold)
+if (LD_GOLD)
+    SET(CMAKE_EXE_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_EXE_LINKER_FLAGS}")
+    #SET(CMAKE_STATIC_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_STATIC_LINKER_FLAGS}")
+    SET(MAKE_MODULE_LINKER_FLAGS "-fuse-ld=gold ${MAKE_MODULE_LINKER_FLAGS}")
+    SET(CMAKE_SHARED_LINKER_FLAGS "-fuse-ld=gold ${CMAKE_SHARED_LINKER_FLAGS}")
+endif ()
 
 file(GLOB SRC_BENCHMARKS "src/benchmarks/*.cpp")
 file(GLOB SRC_APP "src/app/*.cpp")
@@ -23,12 +27,31 @@ file(GLOB SRC_APP "src/app/*.cpp")
 file(GLOB INC_HASHES "src/hashes/*")
 file(GLOB INC_MAPS "src/maps/*")
 
+# Build only some maps or hashes: regexes of their directory names, e.g.
+#   cmake -DMAPS="sflat_.*|ktprime_hash_table8" -DHASHES="std_hash|ankerl_hash" ..
+# The external code of the other maps is then not needed.
+set(MAPS ".*" CACHE STRING "regex of the map directories (src/maps) to build")
+set(HASHES ".*" CACHE STRING "regex of the hash directories (src/hashes) to build")
+list(FILTER INC_MAPS INCLUDE REGEX "maps[\\/](${MAPS})$")
+list(FILTER INC_HASHES INCLUDE REGEX "hashes[\\/](${HASHES})$")
+
 # external code #####################################################################
 
 # boost: use locally built boost version
 set(BOOST_ROOT "/home/martinus/dev/boost_1_82_0_install" CACHE PATH "Boost library path" )
 #list(APPEND CMAKE_PREFIX_PATH /home/martinus/Downloads/boost_1_81_0)
-find_package(Boost 1.81 COMPONENTS container REQUIRED) # for allocators
+# for allocators; required only by the maps that use them. The header-only
+# boost maps can take the headers from BOOST_INCLUDE_DIR instead.
+if (INC_MAPS MATCHES "_pool")
+    find_package(Boost 1.81 COMPONENTS container REQUIRED)
+elseif (INC_MAPS MATCHES "boost_")
+    set(BOOST_INCLUDE_DIR "" CACHE PATH "Boost headers for the header-only boost maps")
+    if (BOOST_INCLUDE_DIR)
+        set(Boost_INCLUDE_DIRS ${BOOST_INCLUDE_DIR})
+    else ()
+        find_package(Boost 1.81 REQUIRED)
+    endif ()
+endif ()
 
 
 # absl stuff: see https://github.com/abseil/abseil-cpp/tree/master/CMake
