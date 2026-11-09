@@ -40,9 +40,17 @@ list(FILTER INC_HASHES INCLUDE REGEX "hashes[\\/](${HASHES})$")
 # boost: use locally built boost version
 set(BOOST_ROOT "/home/martinus/dev/boost_1_82_0_install" CACHE PATH "Boost library path" )
 #list(APPEND CMAKE_PREFIX_PATH /home/martinus/Downloads/boost_1_81_0)
-# for allocators; required only by the maps that use them
-if (INC_MAPS MATCHES "boost_|_pool")
+# for allocators; required only by the maps that use them. The header-only
+# boost maps can take the headers from BOOST_INCLUDE_DIR instead.
+if (INC_MAPS MATCHES "_pool")
     find_package(Boost 1.81 COMPONENTS container REQUIRED)
+elseif (INC_MAPS MATCHES "boost_")
+    set(BOOST_INCLUDE_DIR "" CACHE PATH "Boost headers for the header-only boost maps")
+    if (BOOST_INCLUDE_DIR)
+        set(Boost_INCLUDE_DIRS ${BOOST_INCLUDE_DIR})
+    else ()
+        find_package(Boost 1.81 REQUIRED)
+    endif ()
 endif ()
 
 
