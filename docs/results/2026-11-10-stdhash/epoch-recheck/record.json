@@ -1,0 +1,9 @@
+{
+  "reason": "The original sflat RandomDistinct2 checkpoint preceded the environment loss; the other38 maps for that case were measured in the restored environment. Exactly one recheck uses the same executable and original inputs in the restored environment. The restored sample is selected by epoch, irrespective of whether it is faster; both samples are preserved.",
+  "original_benchmark_s": 5.787578,
+  "restored_benchmark_s": 6.4950980000000005,
+  "original_status": "ok",
+  "restored_status": "ok",
+  "primary_sample": "restored",
+  "timestamp_utc": "2026-11-10T08:47:51Z"
+}

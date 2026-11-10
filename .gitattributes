@@ -1,0 +1,3 @@
+
+# Preserve recorded CSV bytes, including their RFC 4180 CRLF line endings.
+*.csv -text whitespace=cr-at-eol

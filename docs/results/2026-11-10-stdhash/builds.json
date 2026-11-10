@@ -1,0 +1,236 @@
+{
+  "abseil_flat_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 67.22751822099963,
+    "target": "bench_abseil_flat_hash_map__std_hash",
+    "log": "build-logs/abseil_flat_hash_map.log"
+  },
+  "abseil_node_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 9.94594498600054,
+    "target": "bench_abseil_node_hash_map__std_hash",
+    "log": "build-logs/abseil_node_hash_map.log"
+  },
+  "ankerl_unordered_dense": {
+    "returncode": 0,
+    "elapsed_s": 9.867138588997477,
+    "target": "bench_ankerl_unordered_dense__std_hash",
+    "log": "build-logs/ankerl_unordered_dense.log"
+  },
+  "ankerl_unordered_dense_segmented": {
+    "returncode": 0,
+    "elapsed_s": 6.354333783001493,
+    "target": "bench_ankerl_unordered_dense_segmented__std_hash",
+    "log": "build-logs/ankerl_unordered_dense_segmented.log"
+  },
+  "asteria-cow_hashmap": {
+    "returncode": 0,
+    "elapsed_s": 5.388306040000316,
+    "target": "bench_asteria-cow_hashmap__std_hash",
+    "log": "build-logs/asteria-cow_hashmap.log"
+  },
+  "boost_multiindex": {
+    "returncode": 0,
+    "elapsed_s": 5.593720058001054,
+    "target": "bench_boost_multiindex__std_hash",
+    "log": "build-logs/boost_multiindex.log"
+  },
+  "boost_unordered_flat_map": {
+    "returncode": 0,
+    "elapsed_s": 11.000783447998401,
+    "target": "bench_boost_unordered_flat_map__std_hash",
+    "log": "build-logs/boost_unordered_flat_map.log"
+  },
+  "boost_unordered_flat_map_noSSE": {
+    "returncode": 0,
+    "elapsed_s": 6.361759491999692,
+    "target": "bench_boost_unordered_flat_map_noSSE__std_hash",
+    "log": "build-logs/boost_unordered_flat_map_noSSE.log"
+  },
+  "boost_unordered_map": {
+    "returncode": 0,
+    "elapsed_s": 5.488817477002158,
+    "target": "bench_boost_unordered_map__std_hash",
+    "log": "build-logs/boost_unordered_map.log"
+  },
+  "boost_unordered_map_pool": {
+    "returncode": 0,
+    "elapsed_s": 5.591879809002421,
+    "target": "bench_boost_unordered_map_pool__std_hash",
+    "log": "build-logs/boost_unordered_map_pool.log"
+  },
+  "boost_unordered_map_unsynchronized_pool_resource": {
+    "returncode": 0,
+    "elapsed_s": 5.9884761220018845,
+    "target": "bench_boost_unordered_map_unsynchronized_pool_resource__std_hash",
+    "log": "build-logs/boost_unordered_map_unsynchronized_pool_resource.log"
+  },
+  "boost_unordered_node_map": {
+    "returncode": 0,
+    "elapsed_s": 6.435950918999879,
+    "target": "bench_boost_unordered_node_map__std_hash",
+    "log": "build-logs/boost_unordered_node_map.log"
+  },
+  "folly_F14NodeMap": {
+    "returncode": 0,
+    "elapsed_s": 8.344292435998796,
+    "target": "bench_folly_F14NodeMap__std_hash",
+    "log": "build-logs/folly_F14NodeMap.log"
+  },
+  "folly_F14ValueMap": {
+    "returncode": 0,
+    "elapsed_s": 6.64387346500007,
+    "target": "bench_folly_F14ValueMap__std_hash",
+    "log": "build-logs/folly_F14ValueMap.log"
+  },
+  "fph_dynamic_map": {
+    "returncode": 0,
+    "elapsed_s": 12.707629789998464,
+    "target": "bench_fph_dynamic_map__std_hash",
+    "log": "build-logs/fph_dynamic_map.log"
+  },
+  "fph_meta_map": {
+    "returncode": 0,
+    "elapsed_s": 11.65804880900032,
+    "target": "bench_fph_meta_map__std_hash",
+    "log": "build-logs/fph_meta_map.log"
+  },
+  "google_dense_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 7.241976870001963,
+    "target": "bench_google_dense_hash_map__std_hash",
+    "log": "build-logs/google_dense_hash_map.log"
+  },
+  "google_sparse_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 10.652081151001767,
+    "target": "bench_google_sparse_hash_map__std_hash",
+    "log": "build-logs/google_sparse_hash_map.log"
+  },
+  "greg7mdp_btree_map": {
+    "returncode": 0,
+    "elapsed_s": 5.730281950000062,
+    "target": "bench_greg7mdp_btree_map__std_hash",
+    "log": "build-logs/greg7mdp_btree_map.log"
+  },
+  "greg7mdp_flat_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 4.677012759999343,
+    "target": "bench_greg7mdp_flat_hash_map__std_hash",
+    "log": "build-logs/greg7mdp_flat_hash_map.log"
+  },
+  "greg7mdp_node_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 4.6797194669998134,
+    "target": "bench_greg7mdp_node_hash_map__std_hash",
+    "log": "build-logs/greg7mdp_node_hash_map.log"
+  },
+  "greg7mdp_parallel_flat_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 5.383213667002565,
+    "target": "bench_greg7mdp_parallel_flat_hash_map__std_hash",
+    "log": "build-logs/greg7mdp_parallel_flat_hash_map.log"
+  },
+  "greg7mdp_parallel_node_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 5.179301820000546,
+    "target": "bench_greg7mdp_parallel_node_hash_map__std_hash",
+    "log": "build-logs/greg7mdp_parallel_node_hash_map.log"
+  },
+  "greg7mdp_spp_sparse_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 6.13564491699799,
+    "target": "bench_greg7mdp_spp_sparse_hash_map__std_hash",
+    "log": "build-logs/greg7mdp_spp_sparse_hash_map.log"
+  },
+  "jiwan_dense_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 4.327474219000578,
+    "target": "bench_jiwan_dense_hash_map__std_hash",
+    "log": "build-logs/jiwan_dense_hash_map.log"
+  },
+  "ktprime_hash_table7": {
+    "returncode": 0,
+    "elapsed_s": 3.9295701310002187,
+    "target": "bench_ktprime_hash_table7__std_hash",
+    "log": "build-logs/ktprime_hash_table7.log"
+  },
+  "ktprime_hash_table8": {
+    "returncode": 0,
+    "elapsed_s": 3.974824533001083,
+    "target": "bench_ktprime_hash_table8__std_hash",
+    "log": "build-logs/ktprime_hash_table8.log"
+  },
+  "rigtorp_HashMap": {
+    "returncode": 0,
+    "elapsed_s": 4.57850013999996,
+    "target": "bench_rigtorp_HashMap__std_hash",
+    "log": "build-logs/rigtorp_HashMap.log"
+  },
+  "robin_hood_unordered_flat_map": {
+    "returncode": 0,
+    "elapsed_s": 5.035546638999222,
+    "target": "bench_robin_hood_unordered_flat_map__std_hash",
+    "log": "build-logs/robin_hood_unordered_flat_map.log"
+  },
+  "robin_hood_unordered_node_map": {
+    "returncode": 0,
+    "elapsed_s": 5.146819309000421,
+    "target": "bench_robin_hood_unordered_node_map__std_hash",
+    "log": "build-logs/robin_hood_unordered_node_map.log"
+  },
+  "sflat_flat_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 0.16661561000000802,
+    "target": "bench_sflat_flat_hash_map__std_hash",
+    "log": "build-logs/sflat_flat_hash_map.log"
+  },
+  "ska_bytell_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 5.34210594400065,
+    "target": "bench_ska_bytell_hash_map__std_hash",
+    "log": "build-logs/ska_bytell_hash_map.log"
+  },
+  "ska_flat_hash_map": {
+    "returncode": 0,
+    "elapsed_s": 4.353406035999797,
+    "target": "bench_ska_flat_hash_map__std_hash",
+    "log": "build-logs/ska_flat_hash_map.log"
+  },
+  "std_unordered_map": {
+    "returncode": 0,
+    "elapsed_s": 3.9338052599996445,
+    "target": "bench_std_unordered_map__std_hash",
+    "log": "build-logs/std_unordered_map.log"
+  },
+  "std_unordered_map_pool": {
+    "returncode": 0,
+    "elapsed_s": 4.58895796899742,
+    "target": "bench_std_unordered_map_pool__std_hash",
+    "log": "build-logs/std_unordered_map_pool.log"
+  },
+  "std_unordered_map_unsynchronized_pool_resource": {
+    "returncode": 0,
+    "elapsed_s": 4.197128389001591,
+    "target": "bench_std_unordered_map_unsynchronized_pool_resource__std_hash",
+    "log": "build-logs/std_unordered_map_unsynchronized_pool_resource.log"
+  },
+  "tessil_hopscotch_map": {
+    "returncode": 0,
+    "elapsed_s": 6.151076897000166,
+    "target": "bench_tessil_hopscotch_map__std_hash",
+    "log": "build-logs/tessil_hopscotch_map.log"
+  },
+  "tessil_robin_map": {
+    "returncode": 0,
+    "elapsed_s": 4.97692509099943,
+    "target": "bench_tessil_robin_map__std_hash",
+    "log": "build-logs/tessil_robin_map.log"
+  },
+  "tessil_sparse_map": {
+    "returncode": 0,
+    "elapsed_s": 6.0820071779999125,
+    "target": "bench_tessil_sparse_map__std_hash",
+    "log": "build-logs/tessil_sparse_map.log"
+  }
+}

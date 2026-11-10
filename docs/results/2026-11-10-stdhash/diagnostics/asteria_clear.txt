@@ -1,0 +1,1 @@
+Native API: key=1 before_clear=1 after_clear=1 still_found=1

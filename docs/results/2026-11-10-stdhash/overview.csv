@@ -1,0 +1,40 @@
+adapter,label,container_kind,completed_processes,total_cases,timed_passed,timed_total,core_passed,core_total,speed_vs_std,max_observed_rss_gib,peak_is_lower_bound,stable_reference_diagnostic,status_counts,full_core_rank,relative_core_time_to_best
+abseil_flat_hash_map,absl::flat_hash_map,flat / dense hash,20,20,11,17,9,15,,1.6894340515136719,False,0,"{""ok"": 14, ""timeout"": 6}",,
+abseil_node_hash_map,absl::node_hash_map,node / allocator variant,20,20,11,17,9,15,,4.5899658203125,False,1,"{""ok"": 14, ""timeout"": 6}",,
+ankerl_unordered_dense,ankerl::unordered_dense::map,flat / dense hash,20,20,17,17,15,15,,1.6894042966887355,False,0,"{""ok"": 20}",1,1.0
+ankerl_unordered_dense_segmented,ankerl::unordered_dense::segmented_map,segmented dense,20,20,17,17,15,15,,1.4354438781738281,False,1,"{""ok"": 20}",3,1.268428429130664
+asteria-cow_hashmap,asteria::cow_hashmap,copy-on-write hash,20,20,9,17,7,15,,5.499076843261719,True,1,"{""ok"": 12, ""timeout"": 6, ""verification_failed"": 2}",,
+boost_multiindex,boost::multi_index::hashed_unique,hashed multi-index,20,20,17,17,15,15,,3.6975860595703125,False,1,"{""ok"": 20}",17,4.642247699926334
+boost_unordered_flat_map,boost::unordered_flat_map 1_93,flat / dense hash,20,20,17,17,15,15,,1.595550537109375,False,0,"{""ok"": 20}",4,1.376914794823542
+boost_unordered_flat_map_noSSE,boost::unordered_flat_map no SSE 1_93,flat / dense hash,20,20,17,17,15,15,,1.5955566400662065,False,0,"{""ok"": 20}",6,1.696243328834119
+boost_unordered_map,boost::unordered_map 1_93,node / allocator variant,20,20,16,17,14,15,,3.7444686889648438,False,1,"{""ok"": 19, ""timeout"": 1}",,
+boost_unordered_map_pool,boost::unordered_map PoolAllocator 1_93,node / allocator variant,20,20,16,17,14,15,,2.2734107971191406,False,1,"{""ok"": 19, ""timeout"": 1}",,
+boost_unordered_map_unsynchronized_pool_resource,boost::unordered_map unsynchronized_pool_resource 1_93,node / allocator variant,20,20,16,17,14,15,,2.363677978515625,False,1,"{""ok"": 19, ""timeout"": 1}",,
+boost_unordered_node_map,boost::unordered_node_map 1_93,node / allocator variant,20,20,17,17,15,15,,4.0101165771484375,False,1,"{""ok"": 20}",12,2.0807641026595665
+folly_F14NodeMap,folly::F14NodeMap,node / allocator variant,20,20,17,17,15,15,,4.378570556640625,False,1,"{""ok"": 20}",13,2.299791135074364
+folly_F14ValueMap,folly::F14ValueMap,flat / dense hash,20,20,17,17,15,15,,1.5096588134765625,False,0,"{""ok"": 20}",5,1.6218613696234188
+fph_dynamic_map,fph::DynamicFphMap,flat / dense hash,20,20,14,17,13,15,,1.8613548278808594,True,0,"{""ok"": 17, ""timeout"": 3}",,
+fph_meta_map,fph::MetaFphMap,flat / dense hash,20,20,15,17,13,15,,1.1361579895019531,True,0,"{""ok"": 18, ""timeout"": 2}",,
+google_dense_hash_map,google::dense_hash_map,flat / dense hash,20,20,11,17,9,15,,3.001953125,False,0,"{""ok"": 14, ""timeout"": 6}",,
+google_sparse_hash_map,google::sparse_hash_map,flat / dense hash,20,20,10,17,8,15,,0.8700981140136719,False,0,"{""ok"": 13, ""timeout"": 7}",,
+greg7mdp_btree_map,gtl::btree_map,ordered tree,20,20,11,17,9,15,,1.0240478515625,True,0,"{""ok"": 14, ""timeout"": 6}",,
+greg7mdp_flat_hash_map,gtl::flat_hash_map,flat / dense hash,20,20,16,17,14,15,,1.6894187927246094,False,0,"{""ok"": 19, ""timeout"": 1}",,
+greg7mdp_node_hash_map,gtl::node_hash_map,node / allocator variant,20,20,17,17,15,15,,4.5866210935637355,False,1,"{""ok"": 20}",14,2.608463640871929
+greg7mdp_parallel_flat_hash_map,gtl::parallel_flat_hash_map,flat / dense hash,20,20,17,17,15,15,,1.1621208190917969,False,0,"{""ok"": 20}",7,1.787043621254132
+greg7mdp_parallel_node_hash_map,gtl::parallel_node_hash_map,node / allocator variant,20,20,17,17,15,15,,4.142921447753906,False,1,"{""ok"": 20}",15,2.8247650209269017
+greg7mdp_spp_sparse_hash_map,spp::sparse_hash_map,flat / dense hash,20,20,12,17,10,15,,1.2150115966796875,False,0,"{""ok"": 15, ""timeout"": 5}",,
+jiwan_dense_hash_map,jg::dense_hash_map,flat / dense hash,20,20,13,17,11,15,,3.0018882751464844,False,0,"{""ok"": 16, ""timeout"": 4}",,
+ktprime_hash_table7,emhash7::HashMap,flat / dense hash,20,20,13,17,11,15,,2.2752441400662065,False,0,"{""ok"": 16, ""timeout"": 4}",,
+ktprime_hash_table8,emhash8::HashMap,flat / dense hash,20,20,13,17,11,15,,1.7383842468261719,False,0,"{""ok"": 16, ""timeout"": 4}",,
+rigtorp_HashMap,rigtorp::HashMap,flat / dense hash,20,20,11,17,9,15,,3.001903533935547,False,0,"{""ok"": 14, ""timeout"": 6}",,
+robin_hood_unordered_flat_map,robin_hood::unordered_flat_map,flat / dense hash,20,20,17,17,15,15,,1.689300537109375,False,0,"{""ok"": 20}",8,1.7982296978875327
+robin_hood_unordered_node_map,robin_hood::unordered_node_map,node / allocator variant,20,20,17,17,15,15,,2.2518959045410156,False,1,"{""ok"": 20}",10,1.9638134384915078
+sflat_flat_hash_map,sflat::flat_hash_map,flat / dense hash,20,20,17,17,15,15,,1.2147483825683594,False,0,"{""ok"": 20}",2,1.2216193263934676
+ska_bytell_hash_map,ska::bytell_hash_map,flat / dense hash,20,20,17,17,15,15,,1.6894187927246094,False,0,"{""ok"": 20}",11,2.0676026765024935
+ska_flat_hash_map,ska::flat_hash_map,flat / dense hash,20,20,17,17,15,15,,4.501895904541016,False,0,"{""ok"": 20}",9,1.8295471722860295
+std_unordered_map,std::unordered_map,node / allocator variant,20,20,16,17,14,15,,3.70361328125,False,1,"{""ok"": 19, ""timeout"": 1}",,
+std_unordered_map_pool,std::unordered_map PoolAllocator,node / allocator variant,20,20,17,17,15,15,,2.2310333251953125,False,1,"{""ok"": 20}",16,3.2322712891312384
+std_unordered_map_unsynchronized_pool_resource,std::unordered_map unsynchronized_pool_resource,node / allocator variant,20,20,16,17,14,15,,2.24285888671875,True,1,"{""ok"": 19, ""timeout"": 1}",,
+tessil_hopscotch_map,tsl::hopscotch_map,flat / dense hash,20,20,11,17,9,15,,3.001922607421875,False,0,"{""ok"": 14, ""timeout"": 6}",,
+tessil_robin_map,tsl::robin_map,flat / dense hash,20,20,11,17,9,15,,7.000102996826172,True,0,"{""ok"": 14, ""rss_watchdog"": 1, ""timeout"": 5}",,
+tessil_sparse_map,tsl::sparse_map,flat / dense hash,20,20,13,17,11,15,,1.1039543151855469,False,0,"{""ok"": 16, ""timeout"": 4}",,

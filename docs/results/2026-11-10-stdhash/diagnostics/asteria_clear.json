@@ -1,0 +1,10 @@
+{
+  "dependency_commit": "1da154e835dc194c9c52600e902e7d242e9c513a",
+  "source_sha256": "7733d0f1a23d601a4df692f927894b6b4c6ab8eeea41ce8d51224f37c75e6829",
+  "compile_command": "g++ -std=c++17 -O2 -DNDEBUG -I external/lhmouse__asteria diagnostics/asteria_clear.cpp -o asteria_clear",
+  "native_api_without_benchmark_adapter": true,
+  "expected_after_clear_size": 0,
+  "observed_after_clear_size": 1,
+  "observed_key_still_found": true,
+  "scope": "The pinned revision only; no assertion about current upstream."
+}

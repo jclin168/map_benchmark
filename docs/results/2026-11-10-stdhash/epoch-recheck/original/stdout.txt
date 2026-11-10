@@ -1,0 +1,4 @@
+"sflat::flat_hash_map"; "std::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 0.752308; 33.4453; 2.08984; 0.359375; 43.7812; 1.73047; 42.0508
+"sflat::flat_hash_map"; "std::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 1.23403; 149.566; 2.08984; 0.359375; 159.902; 1.73047; 158.172
+"sflat::flat_hash_map"; "std::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 1.81788; 303.691; 2.08984; 0.359375; 314.027; 1.73047; 312.297
+"sflat::flat_hash_map"; "std::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 1.98336; 613.57; 2.08984; 0.359375; 623.906; 1.73047; 622.176
