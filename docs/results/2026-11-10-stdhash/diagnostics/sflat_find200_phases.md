@@ -1,8 +1,12 @@
-# 200 次插入整數查找：sflat 與 Boost flat 的階段差距
+# Integer find after 200 insertions: phase times
 
-來源為本輪兩個驗證通過的原始 checkpoint，未新增測量。每種命中率含低／高 32-bit 分布各一個階段，以下加總兩階段。單次共享 VM 結果只用於挑選後續 profiling 目標，不能確認根因。
+The data comes from two saved checkpoints. Both cases passed the result checks. This comparison adds no measurements.
 
-| 命中率 | sflat 秒數 | Boost flat 秒數 | sflat 耗時／Boost |
+Each hit rate has one low-32-bit phase and one high-32-bit phase. The table adds both phase times.
+
+Use this single VM sample to select profiling tests. Repeat measurements before you identify a cause.
+
+| Hit rate | sflat time s | Boost flat time s | sflat time / Boost time |
 |---|---:|---:|---:|
 | 0% | 9.95010 | 5.52859 | 1.800x |
 | 25% | 17.06565 | 5.62201 | 3.036x |
@@ -10,4 +14,4 @@
 | 75% | 6.12453 | 5.88285 | 1.041x |
 | 100% | 6.45926 | 6.15376 | 1.050x |
 
-[逐階段 CSV](sflat_find200_phases.csv)。高命中率接近、25% 命中率差距較大；後續可優先對這個 mixed hit/miss workload 重複測量與 profiling。本輪不修改測量中的程式。
+See the [phase CSV](sflat_find200_phases.csv). Times are close at high hit rates. The difference is larger at a 25% hit rate.

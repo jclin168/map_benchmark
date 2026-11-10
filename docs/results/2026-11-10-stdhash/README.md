@@ -31,10 +31,10 @@ These seconds include the original **100M integer insertion attempts and clear**
 
 ## Reports and raw data
 
-- [Full report in Traditional Chinese](REPORT.zh-TW.md): every adapter, coverage, category ranks, workload times and profiling targets.
+- [Full report in English](REPORT.md): every adapter, coverage, category ranks, workload times and profiling targets.
 - [Interactive table](comparison.html): download and open locally; select a workload/class and sort time, RSS or virtual-address VmPeak.
 - [All-container overview CSV](overview.csv), [all 780 case cells](case_results.csv), [original phase CSV](raw.csv).
-- [Complete original run ZIP](complete-run.zip): all checkpoints, stdout/stderr, build logs, source patch, diagnostics and reproduction instructions. Paths such as runs/ and stdout/ in the report refer to this archive.
+- [Complete run ZIP](complete-run.zip): all checkpoints, stdout/stderr, build logs, source patch, diagnostics and reproduction instructions. Paths such as runs/ and stdout/ in the report refer to this archive.
 - [Environment, dependency pins and source/binary SHA-256](environment.json), [actual compilation flags](compile-flags.json), [build records](builds.json), [publication validation](publication-validation.json).
 - [Environment restoration record](resumptions.json), [boundary sample recheck](epoch-recheck/record.json). There are 781 retained case results including one predeclared boundary recheck; the restored sample is primary irrespective of speed, and both samples are preserved.
 - [Reproduction/build profile](../../COMPREHENSIVE.md). SHA256SUMS covers the published files.
@@ -48,3 +48,5 @@ One sample on a shared VM does not establish stable small differences or confide
 The measured source baseline was upstream **7acf847**, with sflat **f163c3d**, Abseil **d38452e1 (20250814.1)**, Ankerl **7c58a8b7**, and emhash **12b336f**; exact revisions for all dependencies are in the manifest. This fork also contains a lazy-seed sflat adapter and newer Abseil/emhash pins from its earlier PR. Those newer configurations were not part of this recorded snapshot. Use the original source patch and dependency revisions in the archive to reproduce the historical measurements.
 
 The two verification failures are in the pinned asteria cow_hashmap revision; a native-API clear() reproduction is included. Tessil robin_map exceeded 7 GiB RSS during RandomFind_500000; this incomplete run is not a completed 500K-entry map footprint. Failed-process resource observations are diagnostic data and are excluded from efficiency rankings.
+
+The report text and labels use English. Numerical records, process output, and measured source hashes are unchanged.

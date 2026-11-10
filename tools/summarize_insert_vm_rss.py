@@ -17,11 +17,49 @@ for r in rs:
  rows.append(dict(map=names[r['map']],completed=done,target_entries=n,last_confirmed_entries=int(last['inserted']) if last else 0,measurement='after_target_insert' if done else 'at_watchdog_stop',vmsize_gib=int(snap['vmsize_bytes'])/2**30,rss_gib=int(snap['rss_bytes'])/2**30,vmpeak_gib=vm_peak/2**30,rss_peak_gib=rss_peak/2**30,peak_is_lower_bound=not done,stop_reason=r['stop_reason'],returncode=r['returncode']))
 with (d/'summary.csv').open('w') as f:
  w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
-lines=[f'# {n/1e6:g}M 不 reserve insert：VmSize 與 RSS','',f'uint64_t → uint64_t；唯一 key 即時生成，不配置輸入陣列；不 reserve、不 find。六種 map 共用 std::hash、相同輸入順序、CPU affinity、原有版本與編譯設定；每種一個獨立程序。目標 {n:,} entries，完成 {sum(x["completed"] for x in rows)}/6。','', '**本表為整個程序用量，沒有扣除 baseline**（baseline 仍保存於原始 CSV）。VmSize 是當下整個虛擬位址空間，包含預留、尚未 resident 的映射；RSS 是當下常駐頁。VmPeak 是程序歷來最大 VmSize，RSS peak 是 getrusage 與已監控 VmHWM 的最大值，兩個峰值不一定發生於同一時刻。單位 GiB = 2^30 bytes。','', '## 完成目標：最後一筆 insert 後、map 仍存活','', '| Map | Entries | VmSize GiB | RSS GiB | VmPeak GiB | RSS peak GiB |','|---|---:|---:|---:|---:|---:|']
+lines=[f'# {n/1e6:g}M insert test without reserve: VmSize and RSS','',
+ 'The key and value types are uint64_t. Unique keys are generated during the test. No input array is allocated. '
+ 'The test does not call reserve or find. Each map runs in a separate process. '
+ 'All six maps use std::hash, the same input order, CPU affinity, and recorded versions and build settings.',
+ f'The target is {n:,} entries. {sum(x["completed"] for x in rows)}/6 maps completed the target.','',
+ '## Memory terms','',
+ 'All values cover the full process. No baseline is subtracted. Original CSV files retain the baseline. '
+ 'VmSize is the current virtual address space. It includes reserved mappings that are not resident. '
+ 'RSS is the current resident memory. VmPeak is the highest process VmSize. '
+ 'RSS peak is the maximum of getrusage and observed VmHWM. The two peaks can occur at different times. '
+ 'One GiB is 2^30 bytes.','',
+ '## Complete tests: after the last insertion','',
+ 'The map is still alive at this measurement.','',
+ '| Map | Entries | VmSize GiB | RSS GiB | VmPeak GiB | RSS peak GiB |',
+ '|---|---:|---:|---:|---:|---:|']
 for x in rows:
  if x['completed']:lines.append(f'| {x["map"]} | {n:,} | {x["vmsize_gib"]:.3f} | {x["rss_gib"]:.3f} | {x["vmpeak_gib"]:.3f} | {x["rss_peak_gib"]:.3f} |')
-lines+=['','## 未完成目標：監控發出 SIGKILL 前的同一個取樣','', '| Map | 最後確認筆數下界 | 停止時 VmSize GiB | 停止時 RSS GiB | 已觀測 VmPeak GiB | 已觀測 RSS peak GiB |','|---|---:|---:|---:|---:|---:|']
+lines+=['','## Incomplete tests: sample before SIGKILL','',
+ '| Map | Last confirmed entries, lower bound | VmSize at stop GiB | RSS at stop GiB | Observed VmPeak GiB | Observed RSS peak GiB |',
+ '|---|---:|---:|---:|---:|---:|']
 for x in rows:
  if not x['completed']:lines.append(f'| {x["map"]} | ≥{x["last_confirmed_entries"]:,} | {x["vmsize_gib"]:.3f} | {x["rss_gib"]:.3f} | ≥{x["vmpeak_gib"]:.3f} | ≥{x["rss_peak_gib"]:.3f} |')
-lines+=['', f'未完成者以上用量是停止取樣，不能當成 {n/1e6:g}M 的用量，也不能當成完成 {n/1e6:g}M 所需峰值；最後確認筆數來自每 10M checkpoint，停止當時實際筆數可能更高。取樣與 SIGKILL 之間仍可能有少量配置，因此未完成者 peak 是下界。','',f'RLIMIT_AS soft/hard 均為 unlimited，沒有設定虛擬位址限制。每約 {m["watchdog_poll_seconds"]*1000:g} ms 監控實際 RSS；程序 RSS 預算 {m["rss_limit_bytes"]/2**30:g} GiB、整個環境 memory.current 保護線 {m["cgroup_watchdog_bytes"]/2**30:g} GiB，環境硬上限 8 GiB，無 swap。總用量包含其他程序與 page cache，可能先觸發總用量保護。這是取樣監控，並非 Linux RLIMIT_RSS 硬限制。','', '完成者的 VmSize/VmPeak 從程序內 /proc/self/status 讀取，RSS 從 smaps_rollup 讀取；未完成者的 VmSize/RSS 同取自外部監控的 /proc/PID/status。兩種 RSS kernel accounting 可能有少量差異。','', '```sh',f'python3 tools/run_insert_stream.py --entries {n} --limit-gib 0 --rss-limit-gib 7 --cgroup-limit-gib 7.5 --out {d.name}',f'python3 tools/summarize_insert_vm_rss.py {d.name}','```','', '原始 CSV、停止時快照、觀測峰值、metadata、source/dependency/binary SHA、測量用 C++ source snapshot、前後 OOM event counters 均保留。這是單次記憶體測試；elapsed 包含即時 key 產生、checkpoint 與監控成本，不應直接與先前純 insert timing 排名混用。']
-(d/'REPORT.zh-TW.md').write_text('\n'.join(lines)+'\n');print('\n'.join(lines))
+lines+=['',
+ f'An incomplete row is a stop sample. It is not memory use after {n/1e6:g}M entries. '
+ f'It does not establish the full peak required to finish {n/1e6:g}M entries. '
+ 'The last confirmed count comes from a 10M checkpoint. The true count at termination can be higher. '
+ 'Allocations can occur between the sample and SIGKILL. Incomplete peaks are lower bounds.','',
+ '## Resource limits and data sources','',
+ 'RLIMIT_AS soft and hard limits are unlimited. The test sets no virtual-address limit.',
+ f'The monitor samples RSS about every {m["watchdog_poll_seconds"]*1000:g} ms. '
+ f'The process RSS stop level is {m["rss_limit_bytes"]/2**30:g} GiB. '
+ f'The environment memory.current stop level is {m["cgroup_watchdog_bytes"]/2**30:g} GiB. '
+ 'The cgroup hard limit is 8 GiB. Swap is disabled. '
+ 'Total memory includes other processes and page cache. The total-memory stop can occur first. '
+ 'This sampled monitor is separate from the unenforced Linux RLIMIT_RSS.','',
+ 'Complete tests read VmSize and VmPeak from /proc/self/status. They read RSS from smaps_rollup. '
+ 'Incomplete tests use VmSize and RSS from one external /proc/PID/status sample. '
+ 'The two kernel RSS accounting methods can give small differences.','',
+ '## Repeat the test','', '```sh',
+ f'python3 tools/run_insert_stream.py --entries {n} --limit-gib 0 --rss-limit-gib 7 --cgroup-limit-gib 7.5 --out {d.name}',
+ f'python3 tools/summarize_insert_vm_rss.py {d.name}','```','',
+ 'The files retain original CSV, stop samples, observed peaks, metadata, source and binary hashes, dependency revisions, and measured C++ source. '
+ 'They also retain OOM event counts before and after the test. '
+ 'This is one memory test. Elapsed time includes key generation, checkpoints, and monitoring. '
+ 'Do not combine these elapsed times with the earlier insert-only timing ranks.']
+(d/'REPORT.md').write_text('\n'.join(lines)+'\n');print('\n'.join(lines))

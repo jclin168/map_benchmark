@@ -14,10 +14,41 @@ for name,r in zip(names,results):
     rows.append(dict(map=name,target_entries=n,completed=complete,returncode=r['returncode'],last_status=last['status'] if last else 'no_record',last_confirmed_entries=int(last['inserted']) if last else 0,rss_delta_gib=rss,peak_delta_gib=peak))
 with (d/'summary.csv').open('w') as f:
     w=csv.DictWriter(f,fieldnames=rows[0]);w.writeheader();w.writerows(rows)
-lines=['# 500M 不 reserve、單純 insert：受限環境診斷','',f'目標 {n:,} entries，uint64_t → uint64_t。六者均從空表 native insert，不 reserve、不 find；以雙射即時生成唯一 key，排除 Google markers，沒有 O(N) 輸入陣列。每者一個獨立程序、相同 CPU affinity、共用 std::hash 與先前版本/編譯設定。elapsed 包含 key generation 與每 10M checkpoint 開銷。','',f'環境實體記憶體上限 8 GiB、無 swap；本次設 RLIMIT_AS={cap:g} GiB，以免耗盡環境。這是虛擬位址空間上限，並非 RSS 限制。未 touch 的 mmap 與擴容時的新舊配置都計入，因此以下失敗筆數不能當作 8 GiB RAM 的真實容量上限。','',f'完成 {n:,} entries：{sum(r["completed"] for r in rows)}/{len(rows)}。未完成者沒有 500M 實測用量，以下沒有外推或當作同筆數排名。','', '| Map | 狀態 | 最後確認插入數 | 該時 RSS 增量 GiB | 該時累計 peak 增量 GiB |','|---|---|---:|---:|---:|']
+lines=['# 500M insert-only test without reserve: limited-environment diagnostic','',
+ f'The target is {n:,} entries. The key and value types are uint64_t. '
+ 'Each map starts empty and uses native insert calls. The test does not call reserve or find. '
+ 'A bijection generates unique keys during the test. Inputs exclude Google marker keys. '
+ 'There is no input array proportional to N. Each map uses a separate process. '
+ 'All maps use std::hash, the same CPU affinity, and recorded versions and build settings. '
+ 'Elapsed time includes key generation and each 10M checkpoint.','',
+ f'The environment has an 8 GiB memory limit and no swap. RLIMIT_AS is {cap:g} GiB. '
+ 'This limit measures virtual address space. It does not limit RSS directly. '
+ 'Untouched mmap mappings and old/new growth allocations count toward this limit. '
+ 'A failure count does not establish the physical capacity of 8 GiB RAM.','',
+ f'{sum(r["completed"] for r in rows)}/{len(rows)} maps completed {n:,} entries. '
+ 'Incomplete rows have no completed-target measurement. No extrapolation or equal-entry rank is used.','',
+ '| Map | Status | Last confirmed entries | RSS increase at record GiB | Peak increase at record GiB |',
+ '|---|---|---:|---:|---:|']
 for r in rows:
-    status='完成' if r['completed'] else ('配置失敗' if r['last_status']=='allocation_failed' else f'程序終止，rc={r["returncode"]}；僅有 checkpoint')
+    status='Complete' if r['completed'] else ('Allocation failed' if r['last_status']=='allocation_failed' else f'Process stopped, rc={r["returncode"]}; checkpoint only')
     lines.append(f'| {r["map"]} | {status} | {r["last_confirmed_entries"]:,} | {r["rss_delta_gib"]:.3f} | {r["peak_delta_gib"]:.3f} |')
-lines+=['','RSS 與 peak 均扣除建表前程序 baseline；兩者來自不同 kernel accounting，可能略有差異。配置失敗列在 catch 中、map 尚未析構時讀取。訊號終止列只有最後 checkpoint，筆數與峰值都是可確認的下界，並非終止瞬間的峰值。失敗後 RSS 也不是一個保證可正常使用的 map 之用量。','', 'Google sparse 的 stderr 明確回報 failed to reallocate，並以 exit 1 結束；Google dense 以 SIGSEGV 結束。這兩列僅保留最後 checkpoint。系統 cgroup OOM / OOM kill 計數皆為 0。','', '500M 筆 16-byte key/value 的有效資料本身為 7.451 GiB，還需空槽、索引、配置與成長空間。本環境無法提供完整 500M 六者的實測比較。建議在 32 GiB 或更大的機器重跑，保留足夠作業系統餘裕：','', '```sh','python3 tools/run_insert_stream.py --entries 500000000 --limit-gib 0','python3 tools/summarize_insert_stream.py results-flat64-500m','```','', '工具產生獨立 build-flat64-stream executables，沒有覆寫先前 1M/10M/100M 的 benchmark binaries。原始逐 10M checkpoint、stderr、exit status、binary hashes、dependency commits 與環境設定均一併保留。']
-(d/'REPORT.zh-TW.md').write_text('\n'.join(lines)+'\n')
+lines+=['','## Interpretation','',
+ 'RSS and peak values subtract the process baseline before map creation. '
+ 'Different kernel accounting methods can give small differences. '
+ 'Allocation-failure rows are read in the catch block before map destruction. '
+ 'Signal-stop rows contain only the last checkpoint. Entry counts and peaks are confirmed lower bounds. '
+ 'They are not peaks at the time of termination. RSS after failure does not establish usable map memory.','',
+ 'In the recorded 500M test, Google sparse reported failed reallocation and exit 1. '
+ 'Google dense ended with SIGSEGV. Both rows retain only the last checkpoint. '
+ 'The recorded cgroup OOM and OOM-kill counts were 0.','',
+ 'The key/value payload for 500M entries of 16 bytes is 7.451 GiB. '
+ 'Empty slots, indexes, allocation overhead, and growth need more memory. '
+ 'This environment cannot provide six complete 500M measurements. '
+ 'Use a machine with at least 32 GiB for that test. Keep sufficient memory for the operating system.','',
+ '## Repeat the test','', '```sh',
+ 'python3 tools/run_insert_stream.py --entries 500000000 --limit-gib 0',
+ 'python3 tools/summarize_insert_stream.py results-flat64-500m','```','',
+ 'The tool builds separate build-flat64-stream executables. Existing 1M, 10M, and 100M benchmark binaries are unchanged. '
+ 'The files retain 10M checkpoints, stderr, exit status, binary hashes, dependency commits, and environment settings.']
+(d/'REPORT.md').write_text('\n'.join(lines)+'\n')
 print('\n'.join(lines))
