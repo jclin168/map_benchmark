@@ -37,7 +37,7 @@ The original embedded expected-result checks remain active in Release and return
 
 ## Results and interpretation
 
-- REPORT.zh-TW.md: coverage, methods, overview, category results and selected per-case timings.
+- REPORT.md: coverage, methods, overview, category results and selected per-case timings.
 - comparison.html: standalone interactive table, no network dependencies; select a case/container class and click column headers to sort.
 - overview.csv / overview.json: every adapter's coverage, observed resource peak and optional full-coverage score.
 - case_results.csv: every adapter/case cell, including pending or unsuccessful cells, peak RSS, maximum sampled VmSize and kernel VmPeak observed during polling.
