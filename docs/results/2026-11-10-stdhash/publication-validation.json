@@ -1,0 +1,19 @@
+{
+  "unique_pairs": 780,
+  "adapters": 39,
+  "native_cases": 20,
+  "retained_process_results": 781,
+  "uncheckpointed_interrupted_attempts_not_counted": true,
+  "builds_passed": 39,
+  "source_and_binary_sha256_verified": true,
+  "hash_labels": [
+    "std::hash"
+  ],
+  "status_counts": {
+    "ok": 691,
+    "rss_watchdog": 1,
+    "timeout": 86,
+    "verification_failed": 2
+  },
+  "oom_kill_event_cases": 0
+}

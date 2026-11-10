@@ -77,3 +77,6 @@
 [submodule "external/jclin168__sflat_hash_map"]
 	path = external/jclin168__sflat_hash_map
 	url = https://github.com/jclin168/sflat_hash_map.git
+[submodule "external/google__sparsehash"]
+	path = external/google__sparsehash
+	url = https://github.com/sparsehash/sparsehash.git

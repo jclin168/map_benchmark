@@ -103,6 +103,19 @@ size_t getCurrentRSS( )
 
 #elif defined(__linux__) || defined(__linux) || defined(linux) || defined(__gnu_linux__)
 	/* Linux ---------------------------------------------------- */
+    // smaps_rollup avoids statm's approximate per-CPU RSS accounting.
+    FILE* rollup = fopen("/proc/self/smaps_rollup", "r");
+    if (rollup) {
+        char line[256];
+        unsigned long kib = 0;
+        while (fgets(line, sizeof(line), rollup)) {
+            if (sscanf(line, "Rss: %lu kB", &kib) == 1) {
+                fclose(rollup);
+                return static_cast<size_t>(kib) * 1024;
+            }
+        }
+        fclose(rollup);
+    }
 	long rss = 0L;
 	FILE* fp = NULL;
 	if ( (fp = fopen( "/proc/self/statm", "r" )) == NULL )

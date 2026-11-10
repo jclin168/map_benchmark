@@ -40,3 +40,14 @@
 *.dat
 
 /build_gcc
+# Local benchmark builds and generated measurements
+/build-*/
+/results-flat64*/
+*.log
+
+/results-comprehensive/
+
+__pycache__/
+
+/map-benchmark-comprehensive.patch
+/map-benchmark-comprehensive.zip

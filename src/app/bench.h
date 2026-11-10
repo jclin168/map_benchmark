@@ -1,6 +1,9 @@
 #pragma once
 
 #include <chrono>
+#include <cstdlib>
+#include <cstdint>
+#include <stdexcept>
 #include <fstream>
 #include <functional>
 #include <initializer_list>
@@ -32,7 +35,12 @@ public:
     Bench(std::string testName)
         : mTestName(std::move(testName)) {
         mInitialPeakRss = getPeakRSS();
+        mMemoryBaselineRss = getCurrentRSS();
+        mExtraMemory = std::getenv("MAP_BENCH_EXTRA_MEMORY") != nullptr;
     }
+
+    // Call after preparing input buffers, before constructing the measured map.
+    void setMemoryBaseline() { mMemoryBaselineRss = getCurrentRSS(); }
 
     inline void beginMeasure(const char* measurementName) {
         ++mMeasureCount;
@@ -67,10 +75,20 @@ private:
         }
 
         std::cout << actual_result << mSep << runtime_sec << mSep << (peakRss / 1048576.0);
+        if (mExtraMemory) {
+            auto current = getCurrentRSS();
+            auto peak = getPeakRSS();
+            auto delta = static_cast<int64_t>(current) - static_cast<int64_t>(mMemoryBaselineRss);
+            auto peak_delta = static_cast<int64_t>(peak) - static_cast<int64_t>(mMemoryBaselineRss);
+            std::cout << mSep << current / 1048576.0 << mSep << delta / 1048576.0
+                      << mSep << peak / 1048576.0 << mSep << mMemoryBaselineRss / 1048576.0
+                      << mSep << (peak_delta > 0 ? peak_delta / 1048576.0 : 0.0);
+        }
         if (actual_result != expected_result) {
             std::cout << mSep << mQuote << "ERROR: expected " << expected_result << " but got " << actual_result << mQuote;
         }
         std::cout << std::endl;
+        if (actual_result != expected_result) throw std::runtime_error("benchmark result mismatch");
     }
 
     clock::time_point mStartTime;
@@ -78,6 +96,8 @@ private:
     const char* mQuote = "\"";
     std::string const mTestName;
     size_t mInitialPeakRss;
+    size_t mMemoryBaselineRss = 0;
+    bool mExtraMemory = false;
     size_t mMeasureCount = 0;
 };
 
@@ -112,9 +132,14 @@ public:
         try {
             Bench bench(it->first);
             it->second(bench);
+        } catch (const std::exception& e) {
+            std::cout << "\"EXCEPTION\"" << std::endl;
+            std::cerr << e.what() << std::endl;
+            return 1;
         } catch (...) {
             // make sure we get a newline, even in case of an exception.
             std::cout << "\"EXCEPTION\"" << std::endl;
+            return 1;
         }
         return 0;
     }
@@ -124,5 +149,5 @@ public:
 #define BENCHMARK_PP_INTERNAL_CAT(a, b) a##b
 #define BENCHMARK(f)                                                                                                                                 \
     static void f(Bench& bench);                                                                                                                     \
-    static BenchRegistry BENCHMARK_PP_CAT(reg, __LINE__)(#f, f);                                                                                     \
+    static BenchRegistry BENCHMARK_PP_CAT(reg, __COUNTER__)(#f, f);                                                                                     \
     static void f(Bench& bench)

@@ -1,9 +1,11 @@
 # map_benchmark
-Comprehensive benchmarks of C++ maps
+Benchmarks of C++ maps including sflat::flat_hash_map, Ankerl unordered_dense, Boost, Abseil, Google dense/sparse hash maps and emhash. This fork adds selective builds, resumable isolated runs, expected-result verification, and runtime/RSS/virtual-address recording.
 
 # Results
 
-[Please see here.](https://martin.ankerl.com/2019/04/01/hashmap-benchmarks-01-overview/)
+[Latest published std::hash comparison: 39 configurations and 780 cases](docs/results/2026-11-10-stdhash/README.md). sflat passed all 20 cases and ranked second among the 17 configurations completing the same 15 core workloads. The report preserves failures, exact versions and raw data; it is a single shared-VM snapshot.
+
+[Historical upstream results (2019)](https://martin.ankerl.com/2019/04/01/hashmap-benchmarks-01-overview/).
 
 # building
 
@@ -88,3 +90,10 @@ The implementation if the benchmark is open source, get it here: [martinus/map_b
 Sources:
 * https://wiki.ubuntuusers.de/GRUB_2/Konfiguration/
 * https://perf.readthedocs.io/en/latest/system.html
+# Six-map flat hash comparison
+
+See [the controlled flat64 profile](docs/FLAT64.md) for sflat, Boost, Ankerl, Abseil, Google dense/sparse adapters, selective builds, runtime/RSS recording and reproducible runs. Original suite cases remain available.
+
+# All-container std::hash suite
+
+See [the comprehensive profile](docs/COMPREHENSIVE.md) for all 39 adapters, 20 original registered cases, build coverage, isolated execution, runtime/resource recording, failure reporting and resumable checkpoints.
