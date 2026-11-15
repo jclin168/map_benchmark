@@ -41,7 +41,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     if skip_small:
         benches = [b for b in benches if min(v[idx] for v in data[(hash_, b)].values() if v) >= MIN_MB]
     n = len(MAPS)
-    fig, ax = plt.subplots(figsize=(9, 0.5 * len(benches) + 1.6), dpi=200)
+    fig, ax = plt.subplots(figsize=(9, 0.5 * len(benches) + 2.0), dpi=200)
     ratios = []
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
@@ -81,9 +81,11 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
         ax.spines[s].set_visible(False)
     handles = [Patch(facecolor=c, label=l) for _, l, c in MAPS] + \
               [Patch(facecolor="none", edgecolor="#52514e", hatch="////", label="timeout (300 s)")]
-    ax.set_title(title, fontsize=8, loc="left", pad=36)
-    ax.legend(handles=handles, loc="lower left", bbox_to_anchor=(0, 1.0), ncol=3, fontsize=7, frameon=False)
-    fig.tight_layout()
+    # fixed margins in inches: title, then the legend (3 columns x 2 rows), then the plot, so they cannot overlap
+    H = fig.get_figheight()
+    fig.suptitle(title, fontsize=8, x=0.02, ha="left", y=1 - 0.12 / H)
+    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.02, 1 - 0.45 / H), ncol=3, fontsize=7, frameon=False)
+    fig.subplots_adjust(left=0.2, right=0.98, bottom=0.55 / H, top=1 - 1.25 / H)
     fig.savefig(path, facecolor="#fcfcfb")
     plt.close(fig)
 
