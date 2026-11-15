@@ -1,0 +1,6 @@
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 1.5154; 0.421875
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 1.78819; 0.546875
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 1.59497; 0.796875
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 1.83696; 3.59375
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 3.41043; 23.5352
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 5.20401; 269.535

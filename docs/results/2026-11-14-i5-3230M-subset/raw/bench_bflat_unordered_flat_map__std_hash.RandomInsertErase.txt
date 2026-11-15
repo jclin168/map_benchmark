@@ -1,0 +1,6 @@
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 1.51697; 0.289062
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 1.79449; 0.539062
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 1.60353; 0.789062
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 1.8443; 3.58594
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 3.3856; 23.5273
+"bflat::unordered_flat_map"; "std::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 5.20375; 269.527

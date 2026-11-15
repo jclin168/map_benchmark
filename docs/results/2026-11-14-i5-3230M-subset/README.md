@@ -1,6 +1,6 @@
 # map_benchmark subset on an i5-3230M (2026-11-14)
 
-sflat::flat_hash_map, ankerl::unordered_dense_map, boost::unordered_flat_map, absl::flat_hash_map and std::unordered_map, each
+sflat::flat_hash_map, bflat::unordered_flat_map, ankerl::unordered_dense_map, boost::unordered_flat_map, absl::flat_hash_map and std::unordered_map, each
 with `std_hash` and `ankerl_hash`, on the original registered benchmarks (except the constructor/destructor and ShowHash ones).
 
 **Read this first**
@@ -11,6 +11,10 @@ with `std_hash` and `ankerl_hash`, on the original registered benchmarks (except
   `FlatMap64` case, the RSS/VmPeak recording and changes in `src/app/bench.h` and `main.cpp`, whose effect on the timing was not checked), built with sflat at a0ac82a (main, with the performance changes of
   jclin168/sflat_hash_map#30). It is **not** the harness of the 2026-11-10 snapshot next to this directory, and the two sets of
   numbers are not comparable.
+- bflat::unordered_flat_map (jclin168/bflat_hash_map, branch `review-fixes` at 46abbc8: main 663183f plus the fixes from a code
+  review, see below) was added **a day later** with the same harness (610a6ab), machine and settings (`progress_bflat.log`; the
+  effective clock was 1.27 to 1.37, one reading of 1.274 before its `Copy` run, otherwise 1.32 to 1.37). The other five maps were
+  not rerun.
 - "Peak MB" is the memory the benchmark itself reports for the whole process, including temporaries and allocator retention.
 - Machine: Intel Core i5-3230M (Ivy Bridge, SSE4.2/AVX, no AVX2, 3 MB L3), 14 GiB, Ubuntu 26.04, GCC 15.2 `-O3 -march=native`,
   Boost 1.92 headers, absl 20260817.0. Both cores on the `performance` governor, turbo off (effective clock 1.34 to 1.36 before
@@ -60,3 +64,26 @@ The numbers behind the figures are in [summary.md](summary.md); `raw/` has the o
 To run again: build with `cmake -DMAPS="sflat_flat_hash_map|ankerl_unordered_dense|abseil_flat_hash_map|boost_unordered_flat_map|std_unordered_map" -DHASHES="std_hash|ankerl_hash" -DBOOST_INCLUDE_DIR=<boost headers> ..`
 in `build-run`, compile `tools/clk.cpp` to `docs/results/2026-11-14-i5-3230M-subset/clk`, run `tools/run_subset.sh`, then
 `tools/summarize_subset.py RAW PROGRESS > summary.md` and `tools/plot_subset.py RAW PROGRESS OUT_DIR`.
+
+## bflat::unordered_flat_map
+
+bflat is a Boost-`unordered_flat_map`-style table (15-slot groups with an overflow byte, SIMD group scan) that uses sflat's growth
+(non power-of-two group counts, tiered growth, mmap and incremental migration). A review of it before this run found and fixed:
+an exception from the hash or the move constructor during an incremental migration (duplicate elements, an endless loop with
+`NDEBUG`), copy assignment freeing the old storage with the wrong allocator, `noexcept` on lookups that call the user's hash,
+a range `insert` that shrank the table, and an inconsistent `max_size()`. All tests, also with ASan/UBSan, pass and the fixes do
+not change the speed (within 1.5%). The numbers above are from the fixed version.
+
+From the numbers (`std_hash` unless said otherwise):
+
+- bflat is second to sflat in InsertHugeInt (34.9 s against 30.4 s, boost 54.9 s) and RandomDistinct2 (13.5 s against 12.3 s,
+  boost 28.9 s), and the fastest in RandomInsertErase (15.3 s; sflat 16.0 s, boost 18.6 s) and RandomFind_500000 (90.8 s against
+  92.7 s for boost and 93.6 s for sflat).
+- On the lookup benchmarks it is level with boost (62.6, 64.9 and 90.8 s against 61.1, 64.5 and 92.7 s). With `ankerl_hash` it is
+  also level with boost and 1.2 to 1.3 times faster than sflat on RandomFind_200 and _2000 (62.8 and 64.8 s against 80.3 and 85.1 s).
+- It is clearly slower in AccidentallyQuadratic (32.1 s; sflat 1.5 s, ankerl 3.1 s, boost 25.4 s), IterateIntegers (28.1 s,
+  the slowest of the six; sflat 12.0 s, boost 9.5 s, ankerl 1.9 s) and Copy (3.0 s against 1.4 s for sflat), and Copy and
+  InsertHugeInt use more memory (131 MB against 75 MB, 1490 MB against 1266 MB for sflat). The reasons were not investigated.
+- Peak memory is mixed: bflat is the smallest in AccidentallyQuadratic (273 MB; sflat 309 MB) and below sflat in RandomInsertErase
+  (270 MB against 289 MB), and above it in RandomFind_500000 (22.3 MB against 20.7 MB) and RandomInsertEraseStrings
+  (77.5 MB against 73.3 MB).

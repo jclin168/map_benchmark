@@ -3,7 +3,7 @@
 the best map of that benchmark (log axis, 1x = best). A run killed by the timeout (exit 124 in progress.log) is drawn
 as a dashed line to the edge of the axis with an open X marker, labelled "timeout".
 
-Usage: python3 plot_subset.py RAW_DIR PROGRESS_LOG OUT_DIR
+Usage: python3 plot_subset.py RAW_DIR PROGRESS_LOG[,PROGRESS_LOG...] OUT_DIR
 """
 import csv, os, re, sys
 import matplotlib
@@ -12,9 +12,10 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 raw, prog, out = sys.argv[1:4]
-# colour and marker shape per map (the shape tells the maps apart without the colour); the five colours pass
+# colour and marker shape per map (the shape tells the maps apart without the colour); the six colours pass
 # validate_palette.js (adjacent CVD and normal-vision separation)
 MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6", "o"),
+        ("bflat_unordered_flat_map", "bflat::unordered_flat_map", "#a0522d", "P"),
         ("ankerl_unordered_dense", "ankerl::unordered_dense_map", "#eb6834", "s"),
         ("boost_unordered_flat_map", "boost::unordered_flat_map", "#1baf7a", "^"),
         ("abseil_flat_hash_map", "absl::flat_hash_map", "#6250d6", "D"),
@@ -22,7 +23,7 @@ MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6", "o"),
 MIN_MB = 3.0  # below this the process memory is mostly the runtime, not the map
 
 timeouts = set()
-for line in open(prog):
+for line in (l for f in prog.split(",") for l in open(f)):
     m = re.search(r"done (\S+) (\S+) exit 124", line)
     if m:
         timeouts.add((m.group(1), m.group(2)))
@@ -43,7 +44,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     if skip_small:
         benches = [b for b in benches if min(v[idx] for v in data[(hash_, b)].values() if v) >= MIN_MB]
     n = len(MAPS)
-    fig, ax = plt.subplots(figsize=(9, 0.85 * len(benches) + 2.0), dpi=200)
+    fig, ax = plt.subplots(figsize=(9, 0.9 * len(benches) + 2.2), dpi=200)
     ratios = []
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
@@ -56,7 +57,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
         for mi, (key, label, color, shape) in enumerate(MAPS):
-            y = bi + (mi - (n - 1) / 2) * 0.16
+            y = bi + (mi - (n - 1) / 2) * 0.13
             v = d.get(key)
             if v is None:
                 ax.hlines(y, 1, top, color=color, linewidth=0.8, linestyle=(0, (2, 2)))

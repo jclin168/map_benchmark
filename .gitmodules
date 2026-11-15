@@ -80,3 +80,6 @@
 [submodule "external/google__sparsehash"]
 	path = external/google__sparsehash
 	url = https://github.com/sparsehash/sparsehash.git
+[submodule "external/jclin168__bflat_hash_map"]
+	path = external/jclin168__bflat_hash_map
+	url = https://github.com/jclin168/bflat_hash_map.git
