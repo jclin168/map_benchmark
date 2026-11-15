@@ -1,0 +1,2 @@
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 1.51652; 1.19922
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 2.13301; 2.29297

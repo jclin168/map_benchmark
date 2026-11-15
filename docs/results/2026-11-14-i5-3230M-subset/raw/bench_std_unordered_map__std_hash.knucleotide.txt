@@ -1,0 +1,5 @@
+"std::unordered_map"; "std::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 11.1375; 125.148
+"std::unordered_map"; "std::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 10.8456; 125.43
+"std::unordered_map"; "std::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 1.576; 125.43
+"std::unordered_map"; "std::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 1.5413; 125.43
+"std::unordered_map"; "std::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 1.53465; 125.43

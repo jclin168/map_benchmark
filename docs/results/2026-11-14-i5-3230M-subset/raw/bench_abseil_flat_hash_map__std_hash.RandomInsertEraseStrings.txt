@@ -1,0 +1,5 @@
+"absl::flat_hash_map"; "std::hash"; "RandomInsertEraseStrings"; "01"; "7 bytes"; 9734165; 3.67516; 98.1523
+"absl::flat_hash_map"; "std::hash"; "RandomInsertEraseStrings"; "02"; "8 bytes"; 9734165; 4.46269; 98.4023
+"absl::flat_hash_map"; "std::hash"; "RandomInsertEraseStrings"; "03"; "13 bytes"; 9734165; 3.99163; 98.4023
+"absl::flat_hash_map"; "std::hash"; "RandomInsertEraseStrings"; "04"; "100 bytes"; 5867228; 4.21287; 98.4023
+"absl::flat_hash_map"; "std::hash"; "RandomInsertEraseStrings"; "05"; "1000 bytes"; 2966452; 5.21928; 98.4023

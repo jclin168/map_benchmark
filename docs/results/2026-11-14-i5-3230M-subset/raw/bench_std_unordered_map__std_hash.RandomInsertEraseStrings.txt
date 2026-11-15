@@ -1,0 +1,5 @@
+"std::unordered_map"; "std::hash"; "RandomInsertEraseStrings"; "01"; "7 bytes"; 9734165; 13.8958; 53.8906
+"std::unordered_map"; "std::hash"; "RandomInsertEraseStrings"; "02"; "8 bytes"; 9734165; 14.1416; 54.0352
+"std::unordered_map"; "std::hash"; "RandomInsertEraseStrings"; "03"; "13 bytes"; 9734165; 13.6386; 54.0352
+"std::unordered_map"; "std::hash"; "RandomInsertEraseStrings"; "04"; "100 bytes"; 5867228; 9.22876; 55.2852
+"std::unordered_map"; "std::hash"; "RandomInsertEraseStrings"; "05"; "1000 bytes"; 2966452; 7.4294; 71.6602

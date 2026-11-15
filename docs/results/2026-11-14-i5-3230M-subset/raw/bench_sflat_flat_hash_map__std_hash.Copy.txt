@@ -1,0 +1,2 @@
+"sflat::flat_hash_map"; "std::hash"; "Copy"; "01"; "copy ctor"; 300019900; 0.888469; 73.8516
+"sflat::flat_hash_map"; "std::hash"; "Copy"; "02"; "copy assignment"; 600039800; 0.498534; 75.1641

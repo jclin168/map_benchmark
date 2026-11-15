@@ -1,0 +1,3 @@
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 4.67734; 397.574
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.628384; 397.824
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 4.42568; 795.102

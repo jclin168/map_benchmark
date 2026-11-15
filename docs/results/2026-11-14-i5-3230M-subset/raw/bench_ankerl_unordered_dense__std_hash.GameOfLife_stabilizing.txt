@@ -1,0 +1,4 @@
+"ankerl::unordered_dense::map"; "std::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.0622003; 0.433594
+"ankerl::unordered_dense::map"; "std::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 0.993395; 0.742188
+"ankerl::unordered_dense::map"; "std::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 1.86943; 0.992188
+"ankerl::unordered_dense::map"; "std::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 7.99478; 1.11719

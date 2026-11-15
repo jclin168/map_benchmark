@@ -1,0 +1,5 @@
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "01"; "0% 13 byte"; 26187; 50.1289; 72.4453
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "02"; "25% 13 byte"; 50017770; 54.7286; 72.6797
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "03"; "50% 13 byte"; 100012105; 51.7632; 72.6797
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "04"; "75% 13 byte"; 150003241; 47.3382; 72.6797
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "05"; "100% 13 byte"; 199997474; 42.6691; 72.6797

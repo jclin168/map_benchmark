@@ -1,0 +1,6 @@
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 3.77424; 0.285156
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 4.72046; 0.535156
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 6.00741; 0.660156
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 8.13206; 1.91016
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 24.5538; 22.0352
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 28.6015; 348.32

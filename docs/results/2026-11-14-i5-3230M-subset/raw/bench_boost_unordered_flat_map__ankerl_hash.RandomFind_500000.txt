@@ -1,0 +1,10 @@
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "01"; "0% success, 0x00000000ffffffff"; 32264; 3.95106; 24.6562
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "02"; "0% success, 0xffffffff00000000"; 25224; 3.96663; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "03"; "25% success, 0x00000000ffffffff"; 125017726; 8.76098; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "04"; "25% success, 0xffffffff00000000"; 125017856; 8.77313; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "05"; "50% success, 0x00000000ffffffff"; 250010298; 10.8564; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "06"; "50% success, 0xffffffff00000000"; 250012820; 10.8419; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "07"; "75% success, 0x00000000ffffffff"; 374995622; 11.3133; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "08"; "75% success, 0xffffffff00000000"; 374995604; 11.1537; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "09"; "100% success, 0x00000000ffffffff"; 499988041; 11.0945; 32.5312
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomFind_500000"; "10"; "100% success, 0xffffffff00000000"; 499988041; 11.0109; 32.5312

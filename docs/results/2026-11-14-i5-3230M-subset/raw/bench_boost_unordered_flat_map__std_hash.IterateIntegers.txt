@@ -1,0 +1,2 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "IterateIntegers"; "01"; "iterate while adding"; 20833333325000; 4.31446; 2.03906
+"boost::unordered_flat_map 1_92"; "std::hash"; "IterateIntegers"; "02"; "iterate while removing"; 62498750000000; 5.18651; 2.03906

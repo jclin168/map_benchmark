@@ -1,0 +1,2 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 1.51225; 1.18359
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 2.1334; 2.28125

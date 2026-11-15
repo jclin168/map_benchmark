@@ -1,0 +1,5 @@
+"std::unordered_map"; "std::hash"; "RandomFindString_1000000"; "01"; "0% 13 byte"; 26187; 43.2261; 72.4609
+"std::unordered_map"; "std::hash"; "RandomFindString_1000000"; "02"; "25% 13 byte"; 50017770; 48.3535; 72.6953
+"std::unordered_map"; "std::hash"; "RandomFindString_1000000"; "03"; "50% 13 byte"; 100012105; 47.7022; 72.6953
+"std::unordered_map"; "std::hash"; "RandomFindString_1000000"; "04"; "75% 13 byte"; 150003241; 44.5222; 72.6953
+"std::unordered_map"; "std::hash"; "RandomFindString_1000000"; "05"; "100% 13 byte"; 199997474; 39.5612; 72.6953

@@ -1,0 +1,5 @@
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 58.3429; 3790.9
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 23.5424; 3791.15
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 30.7202; 3791.28
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 39.4003; 3791.28
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.0582132; 3791.28

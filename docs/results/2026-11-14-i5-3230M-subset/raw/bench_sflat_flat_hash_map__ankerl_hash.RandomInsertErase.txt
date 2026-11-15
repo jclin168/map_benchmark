@@ -1,0 +1,6 @@
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 1.78277; 0.453125
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 1.91123; 0.742188
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 1.97886; 0.867188
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 2.21702; 2.51172
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 3.73262; 20.7344
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 5.83349; 288.98

@@ -1,0 +1,6 @@
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 1.54961; 0.457031
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 1.62547; 0.722656
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 1.7158; 0.847656
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 1.97362; 2.48828
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 3.73822; 20.832
+"sflat::flat_hash_map"; "std::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 5.43108; 288.957

@@ -1,0 +1,6 @@
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 3.76904; 0.320312
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 4.6517; 0.445312
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 5.48539; 0.570312
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 7.54368; 1.82031
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 22.5046; 21.9453
+"std::unordered_map"; "std::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 29.0285; 348.23

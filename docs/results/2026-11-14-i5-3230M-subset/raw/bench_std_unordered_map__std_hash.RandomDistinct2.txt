@@ -1,0 +1,4 @@
+"std::unordered_map"; "std::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 12.1224; 98.9766
+"std::unordered_map"; "std::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 16.0916; 650.512
+"std::unordered_map"; "std::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 17.701; 847.949
+"std::unordered_map"; "std::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 35.0584; 1898.77

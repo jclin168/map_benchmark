@@ -1,0 +1,5 @@
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "01"; "7 bytes"; 9734165; 4.25801; 122.637
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "02"; "8 bytes"; 9734165; 4.18428; 153.195
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "03"; "13 bytes"; 9734165; 4.2371; 153.195
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "04"; "100 bytes"; 5867228; 4.11655; 153.195
+"boost::unordered_flat_map 1_92"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "05"; "1000 bytes"; 2966452; 3.72146; 153.195

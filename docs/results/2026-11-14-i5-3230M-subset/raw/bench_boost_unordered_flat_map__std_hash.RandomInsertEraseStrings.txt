@@ -1,0 +1,5 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertEraseStrings"; "01"; "7 bytes"; 9734165; 3.27149; 122.672
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertEraseStrings"; "02"; "8 bytes"; 9734165; 4.33927; 153.172
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertEraseStrings"; "03"; "13 bytes"; 9734165; 3.11675; 153.172
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertEraseStrings"; "04"; "100 bytes"; 5867228; 4.11299; 153.172
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertEraseStrings"; "05"; "1000 bytes"; 2966452; 5.17988; 153.172

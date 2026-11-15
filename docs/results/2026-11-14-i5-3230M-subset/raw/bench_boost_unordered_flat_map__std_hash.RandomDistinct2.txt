@@ -1,0 +1,4 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 6.36778; 51.5312
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 7.46289; 204.781
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 7.14427; 408.781
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 7.89354; 816.781

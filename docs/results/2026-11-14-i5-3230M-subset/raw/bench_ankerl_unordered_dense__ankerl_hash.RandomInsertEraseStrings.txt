@@ -1,0 +1,5 @@
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "01"; "7 bytes"; 9734165; 6.23396; 75.3867
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "02"; "8 bytes"; 9734165; 6.07298; 96.5508
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "03"; "13 bytes"; 9734165; 6.21379; 96.5664
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "04"; "100 bytes"; 5867228; 5.17088; 96.5664
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomInsertEraseStrings"; "05"; "1000 bytes"; 2966452; 4.75701; 96.5664

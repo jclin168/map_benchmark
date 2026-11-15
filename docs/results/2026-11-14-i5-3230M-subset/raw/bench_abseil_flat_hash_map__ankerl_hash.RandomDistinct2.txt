@@ -1,0 +1,4 @@
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 6.41363; 54.7344
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 7.78529; 216.859
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 7.60668; 432.859
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 7.71238; 864.859

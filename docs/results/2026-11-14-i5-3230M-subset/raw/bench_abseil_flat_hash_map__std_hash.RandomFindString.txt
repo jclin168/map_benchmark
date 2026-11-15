@@ -1,0 +1,5 @@
+"absl::flat_hash_map"; "std::hash"; "RandomFindString"; "01"; "0% 100 byte"; 1721; 4.69569; 16.1484
+"absl::flat_hash_map"; "std::hash"; "RandomFindString"; "02"; "25% 100 byte"; 24999056; 7.70541; 16.5781
+"absl::flat_hash_map"; "std::hash"; "RandomFindString"; "03"; "50% 100 byte"; 49996344; 8.95501; 18.3281
+"absl::flat_hash_map"; "std::hash"; "RandomFindString"; "04"; "75% 100 byte"; 74992237; 9.85909; 18.3281
+"absl::flat_hash_map"; "std::hash"; "RandomFindString"; "05"; "100% 100 byte"; 99989650; 10.1069; 18.3281
