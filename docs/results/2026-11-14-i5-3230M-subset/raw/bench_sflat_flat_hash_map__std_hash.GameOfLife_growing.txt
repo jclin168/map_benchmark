@@ -1,0 +1,2 @@
+"sflat::flat_hash_map"; "std::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 1.76554; 1.34375
+"sflat::flat_hash_map"; "std::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 2.34403; 2.24609

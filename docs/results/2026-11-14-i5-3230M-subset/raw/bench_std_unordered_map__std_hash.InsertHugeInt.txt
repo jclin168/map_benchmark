@@ -1,0 +1,5 @@
+"std::unordered_map"; "std::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 55.5616; 3790.78
+"std::unordered_map"; "std::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 23.3533; 3791.09
+"std::unordered_map"; "std::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 29.6545; 3791.21
+"std::unordered_map"; "std::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 38.0855; 3791.21
+"std::unordered_map"; "std::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.058558; 3791.21

@@ -1,0 +1,4 @@
+"absl::flat_hash_map"; "std::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 2.0287; 0.546875
+"absl::flat_hash_map"; "std::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 57.1185; 0.835938
+"absl::flat_hash_map"; "std::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 135.102; 0.835938
+"absl::flat_hash_map"; "std::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 

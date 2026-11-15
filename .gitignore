@@ -51,3 +51,4 @@ __pycache__/
 
 /map-benchmark-comprehensive.patch
 /map-benchmark-comprehensive.zip
+docs/results/**/clk

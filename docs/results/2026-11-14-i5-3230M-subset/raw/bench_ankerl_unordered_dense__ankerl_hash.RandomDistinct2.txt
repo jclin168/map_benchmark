@@ -1,0 +1,4 @@
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 9.8141; 54.4805
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 10.24; 216.758
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 9.82341; 432.707
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 8.20805; 864.73

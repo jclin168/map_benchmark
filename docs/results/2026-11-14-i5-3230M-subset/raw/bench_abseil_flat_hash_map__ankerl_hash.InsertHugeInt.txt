@@ -1,0 +1,5 @@
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 16.8201; 1728.73
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.124011; 1728.73
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 16.5888; 1728.86
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 19.3096; 1728.86
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.135154; 1728.86

@@ -1,0 +1,4 @@
+"absl::flat_hash_map"; "std::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 12.5439; 41.5664
+"absl::flat_hash_map"; "std::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 63.8798; 184.191
+"absl::flat_hash_map"; "std::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 179.691; 367.441
+"absl::flat_hash_map"; "std::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 8.00849; 864.816

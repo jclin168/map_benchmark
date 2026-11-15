@@ -1,0 +1,5 @@
+"sflat::flat_hash_map"; "std::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 8.68733; 1266.42
+"sflat::flat_hash_map"; "std::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.011356; 1266.42
+"sflat::flat_hash_map"; "std::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 8.6487; 1266.42
+"sflat::flat_hash_map"; "std::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 13.0844; 1266.42
+"sflat::flat_hash_map"; "std::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.0163542; 1266.42

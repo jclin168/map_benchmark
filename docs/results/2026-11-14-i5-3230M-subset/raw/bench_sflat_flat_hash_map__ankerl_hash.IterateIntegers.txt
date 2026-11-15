@@ -1,0 +1,2 @@
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "IterateIntegers"; "01"; "iterate while adding"; 20833333325000; 5.47299; 2.21484
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "IterateIntegers"; "02"; "iterate while removing"; 62498750000000; 6.43765; 2.21484

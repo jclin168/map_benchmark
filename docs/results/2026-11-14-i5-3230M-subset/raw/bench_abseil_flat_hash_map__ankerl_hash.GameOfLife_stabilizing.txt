@@ -1,0 +1,4 @@
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.0952561; 0.605469
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 1.49951; 0.980469
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 2.53226; 0.980469
+"absl::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 11.6972; 1.23047

@@ -1,0 +1,5 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomFindString"; "01"; "0% 100 byte"; 1721; 3.63674; 15.8281
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomFindString"; "02"; "25% 100 byte"; 24999056; 6.87878; 16.082
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomFindString"; "03"; "50% 100 byte"; 49996344; 8.08565; 20.707
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomFindString"; "04"; "75% 100 byte"; 74992237; 8.74561; 20.707
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomFindString"; "05"; "100% 100 byte"; 99989650; 8.56218; 20.707

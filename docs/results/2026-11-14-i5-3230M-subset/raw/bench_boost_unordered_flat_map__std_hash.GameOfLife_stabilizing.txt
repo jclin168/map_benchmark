@@ -1,0 +1,4 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.0587927; 0.46875
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 0.93469; 0.84375
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 1.68484; 1.09375
+"boost::unordered_flat_map 1_92"; "std::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 7.39367; 1.09375

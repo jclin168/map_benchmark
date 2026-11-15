@@ -1,0 +1,5 @@
+"absl::flat_hash_map"; "std::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 7.54383; 126.125
+"absl::flat_hash_map"; "std::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 6.8163; 128.305
+"absl::flat_hash_map"; "std::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 3.41807; 128.305
+"absl::flat_hash_map"; "std::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 3.40163; 128.305
+"absl::flat_hash_map"; "std::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 3.16567; 128.305

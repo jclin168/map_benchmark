@@ -1,0 +1,2 @@
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "IterateIntegers"; "01"; "iterate while adding"; 20833333325000; 12.7184; 2.53906
+"std::unordered_map"; "ankerl::unordered_dense::hash"; "IterateIntegers"; "02"; "iterate while removing"; 62498750000000; 12.2383; 2.69531

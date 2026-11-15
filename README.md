@@ -5,6 +5,8 @@ Benchmarks of C++ maps including sflat::flat_hash_map, Ankerl unordered_dense, B
 
 [Latest published std::hash comparison: 39 configurations and 780 cases](docs/results/2026-11-10-stdhash/README.md). sflat passed all 20 cases and ranked second among the 17 configurations completing the same 15 core workloads. The report preserves failures, exact versions and raw data; it is a single shared-VM snapshot.
 
+[Subset run with figures (2026-11-14): sflat, ankerl, boost, absl, std on an i5-3230M, `std_hash` and `ankerl_hash`](docs/results/2026-11-14-i5-3230M-subset/README.md). One iteration per benchmark, a different harness than the snapshot above, so the two are not comparable.
+
 [Historical upstream results (2019)](https://martin.ankerl.com/2019/04/01/hashmap-benchmarks-01-overview/).
 
 # building

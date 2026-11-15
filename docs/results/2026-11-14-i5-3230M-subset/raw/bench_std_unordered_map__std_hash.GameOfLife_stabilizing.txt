@@ -1,0 +1,4 @@
+"std::unordered_map"; "std::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.218398; 0.289062
+"std::unordered_map"; "std::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 3.52616; 0.847656
+"std::unordered_map"; "std::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 5.86083; 1.09766
+"std::unordered_map"; "std::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 27.5664; 1.22266

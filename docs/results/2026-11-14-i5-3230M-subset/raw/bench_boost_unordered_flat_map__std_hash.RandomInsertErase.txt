@@ -1,0 +1,6 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 1.56563; 0.429688
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 1.74858; 0.554688
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 1.5953; 0.804688
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 32800; 1.77809; 2.77734
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "05"; "20 bits, 50M cycles"; 524439; 3.60331; 32.7773
+"boost::unordered_flat_map 1_92"; "std::hash"; "RandomInsertErase"; "06"; "24 bits, 50M cycles"; 8366634; 8.3377; 384.777

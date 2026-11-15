@@ -1,0 +1,4 @@
+"absl::flat_hash_map"; "std::hash"; "RandomInsertErase"; "01"; "4 bits, 50M cycles"; 7; 3.35382; 0.289062
+"absl::flat_hash_map"; "std::hash"; "RandomInsertErase"; "02"; "8 bits, 50M cycles"; 123; 7.78716; 0.539062
+"absl::flat_hash_map"; "std::hash"; "RandomInsertErase"; "03"; "12 bits, 50M cycles"; 2031; 32.788; 0.664062
+"absl::flat_hash_map"; "std::hash"; "RandomInsertErase"; "04"; "16 bits, 50M cycles"; 

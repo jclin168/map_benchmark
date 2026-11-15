@@ -1,0 +1,5 @@
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 1.48666; 125.09
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 1.48789; 127.484
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 0.979638; 127.484
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.871367; 127.484
+"ankerl::unordered_dense::map"; "ankerl::unordered_dense::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 0.884998; 127.484

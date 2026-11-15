@@ -1,0 +1,5 @@
+"boost::unordered_flat_map 1_92"; "std::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 16.6119; 1632.54
+"boost::unordered_flat_map 1_92"; "std::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.00918384; 1632.54
+"boost::unordered_flat_map 1_92"; "std::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 16.357; 1632.54
+"boost::unordered_flat_map 1_92"; "std::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 21.8433; 1632.54
+"boost::unordered_flat_map 1_92"; "std::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.101536; 1632.54

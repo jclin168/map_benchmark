@@ -1,0 +1,5 @@
+"std::unordered_map"; "std::hash"; "RandomFindString"; "01"; "0% 100 byte"; 1721; 15.9793; 18.4414
+"std::unordered_map"; "std::hash"; "RandomFindString"; "02"; "25% 100 byte"; 24999056; 19.0823; 18.6016
+"std::unordered_map"; "std::hash"; "RandomFindString"; "03"; "50% 100 byte"; 49996344; 19.114; 18.6016
+"std::unordered_map"; "std::hash"; "RandomFindString"; "04"; "75% 100 byte"; 74992237; 17.8499; 18.6016
+"std::unordered_map"; "std::hash"; "RandomFindString"; "05"; "100% 100 byte"; 99989650; 16.1634; 18.6016

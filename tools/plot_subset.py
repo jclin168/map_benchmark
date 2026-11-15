@@ -1,0 +1,102 @@
+#!/usr/bin/env python3
+"""Dot charts of the run_subset.sh results: per benchmark, the total time and the peak memory of each map relative to
+the best map of that benchmark (log axis, 1x = best). A run killed by the timeout (exit 124 in progress.log) is drawn
+as a dashed line to the edge of the axis with an open X marker, labelled "timeout".
+
+Usage: python3 plot_subset.py RAW_DIR PROGRESS_LOG OUT_DIR
+"""
+import csv, os, re, sys
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+
+raw, prog, out = sys.argv[1:4]
+MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6"),
+        ("ankerl_unordered_dense", "ankerl::unordered_dense_map", "#eb6834"),
+        ("boost_unordered_flat_map", "boost::unordered_flat_map", "#1baf7a"),
+        ("abseil_flat_hash_map", "absl::flat_hash_map", "#eda100"),
+        ("std_unordered_map", "std::unordered_map", "#e87ba4")]
+MIN_MB = 3.0  # below this the process memory is mostly the runtime, not the map
+
+timeouts = set()
+for line in open(prog):
+    m = re.search(r"done (\S+) (\S+) exit 124", line)
+    if m:
+        timeouts.add((m.group(1), m.group(2)))
+data = {}  # (hash, bench) -> {map: (seconds, mb) or None for a timeout}
+for f in sorted(os.listdir(raw)):
+    m = re.match(r"(bench_.+?)\.(.+)\.txt$", f)
+    if not m:
+        continue
+    app, bench = m.groups()
+    name, hash_ = app[6:].split("__")
+    rows = [r for r in csv.reader(open(os.path.join(raw, f)), delimiter=";", skipinitialspace=True) if len(r) >= 8]
+    val = None if (app, bench) in timeouts else (sum(float(r[6]) for r in rows), max(float(r[7]) for r in rows))
+    data.setdefault((hash_, bench), {})[name] = val
+
+
+def plot(hash_, idx, title, xlabel, path, skip_small):
+    benches = sorted(b for (h, b) in data if h == hash_)
+    if skip_small:
+        benches = [b for b in benches if min(v[idx] for v in data[(hash_, b)].values() if v) >= MIN_MB]
+    n = len(MAPS)
+    fig, ax = plt.subplots(figsize=(9, 0.85 * len(benches) + 2.0), dpi=200)
+    ratios = []
+    for bi, b in enumerate(benches):
+        d = data[(hash_, b)]
+        best = min(v[idx] for v in d.values() if v)
+        for mi, (key, label, color) in enumerate(MAPS):
+            ratios.append(d[key][idx] / best if d.get(key) else None)
+    top = max(r for r in ratios if r) * 2.6
+    L = 0.85  # room left of 1x so that the markers of the best maps are fully visible
+    for bi, b in enumerate(benches):
+        d = data[(hash_, b)]
+        best = min(v[idx] for v in d.values() if v)
+        for mi, (key, label, color) in enumerate(MAPS):
+            y = bi + (mi - (n - 1) / 2) * 0.16
+            v = d.get(key)
+            if v is None:
+                ax.hlines(y, 1, top, color=color, linewidth=0.8, linestyle=(0, (2, 2)))
+                ax.scatter([top / 1.15], [y], s=34, marker="X", facecolor="white", edgecolor=color, linewidth=1.1, zorder=3)
+                ax.text(top / 1.3, y, "timeout", ha="right", va="center", fontsize=5.5, color="#52514e")
+            else:
+                r = v[idx] / best
+                ax.hlines(y, 1, r, color=color, linewidth=1.2)
+                ax.scatter([r], [y], s=34, color=color, edgecolor="#fcfcfb", linewidth=0.6, zorder=3)
+                ax.text(r * 1.05, y, "%.2fx (%.4g)" % (r, v[idx]), va="center", fontsize=5.5, color="#52514e")
+    ax.set_xscale("log")
+    ax.set_xlim(L, top)
+    ax.set_yticks(range(len(benches)))
+    ax.set_yticklabels(benches, fontsize=7)
+    ax.set_xlabel(xlabel, fontsize=8)
+    ticks = [t for t in (1, 1.25, 1.5, 2, 3, 5, 10, 20, 50, 100, 200) if L <= t <= top]
+    ax.set_xticks(ticks)
+    ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda x, _: "%gx" % x))
+    ax.xaxis.set_minor_locator(matplotlib.ticker.NullLocator())
+    ax.set_ylim(len(benches) - 0.5, -0.5)
+    ax.tick_params(axis="x", labelsize=7)
+    ax.grid(True, axis="x", which="major", linewidth=0.3, color="#d9d8d3")
+    ax.axvline(1, color="#52514e", linewidth=0.6)
+    ax.set_axisbelow(True)
+    for s in ("top", "right"):
+        ax.spines[s].set_visible(False)
+    handles = [Line2D([0], [0], color=c, marker="o", markersize=5, linewidth=1.2, label=l) for _, l, c in MAPS] + \
+              [Line2D([0], [0], color="#52514e", marker="X", markerfacecolor="white", markersize=6, linewidth=0.8,
+                      linestyle=(0, (2, 2)), label="timeout (300 s)")]
+    # fixed margins in inches: title, then the legend (3 columns x 2 rows), then the plot, so they cannot overlap
+    H = fig.get_figheight()
+    fig.suptitle(title, fontsize=8, x=0.02, ha="left", y=1 - 0.12 / H)
+    fig.legend(handles=handles, loc="upper left", bbox_to_anchor=(0.02, 1 - 0.45 / H), ncol=3, fontsize=7, frameon=False)
+    fig.subplots_adjust(left=0.2, right=0.98, bottom=0.55 / H, top=1 - 1.25 / H)
+    fig.savefig(path, facecolor="#fcfcfb")
+    plt.close(fig)
+
+
+os.makedirs(out, exist_ok=True)
+for hash_ in ("std_hash", "ankerl_hash"):
+    plot(hash_, 0, "Total time per benchmark, %s. Labels: ratio to the best map (seconds)" % hash_,
+         "time relative to the fastest map of the benchmark (log scale)", os.path.join(out, "time_%s.png" % hash_), False)
+    plot(hash_, 1, "Peak memory per benchmark, %s. Labels: ratio to the smallest (MB). Benchmarks under %g MB left out" % (hash_, MIN_MB),
+         "peak MB reported by the benchmark, relative to the smallest (log scale)", os.path.join(out, "memory_%s.png" % hash_), True)
+print("wrote", sorted(os.listdir(out)))
