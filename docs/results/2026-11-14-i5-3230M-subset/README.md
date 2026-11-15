@@ -18,7 +18,7 @@ with `std_hash` and `ankerl_hash`, on the original registered benchmarks (except
 
 ## Total time
 
-Relative to the fastest map of each benchmark (log axis). Labels: sflat and the best map, as ratio (seconds). Dashed line ending in an open X = timeout.
+Relative to the fastest map of each benchmark (log axis). Labels: ratio to the best map and, in brackets, the seconds. Dashed line ending in an open X = timeout.
 
 ![time, std_hash](figures/time_std_hash.png)
 

@@ -41,20 +41,20 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     if skip_small:
         benches = [b for b in benches if min(v[idx] for v in data[(hash_, b)].values() if v) >= MIN_MB]
     n = len(MAPS)
-    fig, ax = plt.subplots(figsize=(9, 0.5 * len(benches) + 2.0), dpi=200)
+    fig, ax = plt.subplots(figsize=(9, 0.85 * len(benches) + 2.0), dpi=200)
     ratios = []
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
         for mi, (key, label, color) in enumerate(MAPS):
             ratios.append(d[key][idx] / best if d.get(key) else None)
-    top = max(r for r in ratios if r) * 1.8
+    top = max(r for r in ratios if r) * 2.6
     L = 0.85  # room left of 1x so that the markers of the best maps are fully visible
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
         for mi, (key, label, color) in enumerate(MAPS):
-            y = bi + (mi - (n - 1) / 2) * 0.15
+            y = bi + (mi - (n - 1) / 2) * 0.16
             v = d.get(key)
             if v is None:
                 ax.hlines(y, 1, top, color=color, linewidth=0.8, linestyle=(0, (2, 2)))
@@ -64,8 +64,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
                 r = v[idx] / best
                 ax.hlines(y, 1, r, color=color, linewidth=1.2)
                 ax.scatter([r], [y], s=34, color=color, edgecolor="#fcfcfb", linewidth=0.6, zorder=3)
-                if mi == 0 or r == 1:  # label the first map (sflat) and the best one
-                    ax.text(r * 1.04, y, "%.2fx (%.4g)" % (r, v[idx]), va="center", fontsize=5.5, color="#52514e")
+                ax.text(r * 1.05, y, "%.2fx (%.4g)" % (r, v[idx]), va="center", fontsize=5.5, color="#52514e")
     ax.set_xscale("log")
     ax.set_xlim(L, top)
     ax.set_yticks(range(len(benches)))
@@ -96,8 +95,8 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
 
 os.makedirs(out, exist_ok=True)
 for hash_ in ("std_hash", "ankerl_hash"):
-    plot(hash_, 0, "Total time per benchmark, %s. Labels: sflat and the best map, as ratio (seconds)" % hash_,
+    plot(hash_, 0, "Total time per benchmark, %s. Labels: ratio to the best map (seconds)" % hash_,
          "time relative to the fastest map of the benchmark (log scale)", os.path.join(out, "time_%s.png" % hash_), False)
-    plot(hash_, 1, "Peak memory per benchmark, %s. Labels: sflat and the smallest, as ratio (MB). Benchmarks under %g MB left out" % (hash_, MIN_MB),
+    plot(hash_, 1, "Peak memory per benchmark, %s. Labels: ratio to the smallest (MB). Benchmarks under %g MB left out" % (hash_, MIN_MB),
          "peak MB reported by the benchmark, relative to the smallest (log scale)", os.path.join(out, "memory_%s.png" % hash_), True)
 print("wrote", sorted(os.listdir(out)))
