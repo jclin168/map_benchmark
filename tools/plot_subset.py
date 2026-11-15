@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Bar charts of the run_subset.sh results: per benchmark, the total time and the peak memory of each map relative to
+"""Dot charts of the run_subset.sh results: per benchmark, the total time and the peak memory of each map relative to
 the best map of that benchmark (log axis, 1x = best). A run killed by the timeout (exit 124 in progress.log) is drawn
-as a hatched bar to the edge of the axis and labelled "timeout".
+as a dashed line to the edge of the axis with an open X marker, labelled "timeout".
 
 Usage: python3 plot_subset.py RAW_DIR PROGRESS_LOG OUT_DIR
 """
@@ -9,7 +9,7 @@ import csv, os, re, sys
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-from matplotlib.patches import Patch
+from matplotlib.lines import Line2D
 
 raw, prog, out = sys.argv[1:4]
 MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6"),
@@ -49,7 +49,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
         for mi, (key, label, color) in enumerate(MAPS):
             ratios.append(d[key][idx] / best if d.get(key) else None)
     top = max(r for r in ratios if r) * 1.8
-    L = 0.9  # the best map (1x) gets a short bar instead of none
+    L = 0.85  # room left of 1x so that the markers of the best maps are fully visible
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
@@ -57,11 +57,13 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
             y = bi + (mi - (n - 1) / 2) * 0.15
             v = d.get(key)
             if v is None:
-                ax.barh(y, top - L, left=L, height=0.13, color="none", edgecolor=color, hatch="////", linewidth=0.6)
-                ax.text(top / 1.05, y, "timeout", ha="right", va="center", fontsize=5.5, color="#52514e")
+                ax.hlines(y, 1, top, color=color, linewidth=0.8, linestyle=(0, (2, 2)))
+                ax.scatter([top / 1.15], [y], s=34, marker="X", facecolor="white", edgecolor=color, linewidth=1.1, zorder=3)
+                ax.text(top / 1.3, y, "timeout", ha="right", va="center", fontsize=5.5, color="#52514e")
             else:
                 r = v[idx] / best
-                ax.barh(y, r - L, left=L, height=0.13, color=color, edgecolor="#fcfcfb", linewidth=0.4)
+                ax.hlines(y, 1, r, color=color, linewidth=1.2)
+                ax.scatter([r], [y], s=34, color=color, edgecolor="#fcfcfb", linewidth=0.6, zorder=3)
                 if mi == 0 or r == 1:  # label the first map (sflat) and the best one
                     ax.text(r * 1.04, y, "%.2fx (%.4g)" % (r, v[idx]), va="center", fontsize=5.5, color="#52514e")
     ax.set_xscale("log")
@@ -76,11 +78,13 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     ax.set_ylim(len(benches) - 0.5, -0.5)
     ax.tick_params(axis="x", labelsize=7)
     ax.grid(True, axis="x", which="major", linewidth=0.3, color="#d9d8d3")
+    ax.axvline(1, color="#52514e", linewidth=0.6)
     ax.set_axisbelow(True)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    handles = [Patch(facecolor=c, label=l) for _, l, c in MAPS] + \
-              [Patch(facecolor="none", edgecolor="#52514e", hatch="////", label="timeout (300 s)")]
+    handles = [Line2D([0], [0], color=c, marker="o", markersize=5, linewidth=1.2, label=l) for _, l, c in MAPS] + \
+              [Line2D([0], [0], color="#52514e", marker="X", markerfacecolor="white", markersize=6, linewidth=0.8,
+                      linestyle=(0, (2, 2)), label="timeout (300 s)")]
     # fixed margins in inches: title, then the legend (3 columns x 2 rows), then the plot, so they cannot overlap
     H = fig.get_figheight()
     fig.suptitle(title, fontsize=8, x=0.02, ha="left", y=1 - 0.12 / H)

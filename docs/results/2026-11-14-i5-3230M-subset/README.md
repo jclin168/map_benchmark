@@ -18,7 +18,7 @@ with `std_hash` and `ankerl_hash`, on the original registered benchmarks (except
 
 ## Total time
 
-Relative to the fastest map of each benchmark (log axis). Labels: sflat and the best map, as ratio (seconds). Hatched = timeout.
+Relative to the fastest map of each benchmark (log axis). Labels: sflat and the best map, as ratio (seconds). Dashed line ending in an open X = timeout.
 
 ![time, std_hash](figures/time_std_hash.png)
 
@@ -28,7 +28,7 @@ Relative to the fastest map of each benchmark (log axis). Labels: sflat and the 
 
 Relative to the smallest map of each benchmark. The five benchmarks that use less than 3 MB (GameOfLife, IterateIntegers,
 RandomFind_200 and _2000) are left out: there the memory is mostly the runtime. A timed-out run has no comparable peak and is
-hatched.
+drawn as a dashed line with an open X.
 
 ![memory, std_hash](figures/memory_std_hash.png)
 
