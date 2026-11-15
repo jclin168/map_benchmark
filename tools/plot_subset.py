@@ -12,11 +12,13 @@ import matplotlib.pyplot as plt
 from matplotlib.lines import Line2D
 
 raw, prog, out = sys.argv[1:4]
-MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6"),
-        ("ankerl_unordered_dense", "ankerl::unordered_dense_map", "#eb6834"),
-        ("boost_unordered_flat_map", "boost::unordered_flat_map", "#1baf7a"),
-        ("abseil_flat_hash_map", "absl::flat_hash_map", "#eda100"),
-        ("std_unordered_map", "std::unordered_map", "#e87ba4")]
+# colour and marker shape per map (the shape tells the maps apart without the colour); the five colours pass
+# validate_palette.js (adjacent CVD and normal-vision separation)
+MAPS = [("sflat_flat_hash_map", "sflat::flat_hash_map", "#2a78d6", "o"),
+        ("ankerl_unordered_dense", "ankerl::unordered_dense_map", "#eb6834", "s"),
+        ("boost_unordered_flat_map", "boost::unordered_flat_map", "#1baf7a", "^"),
+        ("abseil_flat_hash_map", "absl::flat_hash_map", "#6250d6", "D"),
+        ("std_unordered_map", "std::unordered_map", "#e87ba4", "v")]
 MIN_MB = 3.0  # below this the process memory is mostly the runtime, not the map
 
 timeouts = set()
@@ -46,24 +48,24 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
-        for mi, (key, label, color) in enumerate(MAPS):
+        for mi, (key, label, color, shape) in enumerate(MAPS):
             ratios.append(d[key][idx] / best if d.get(key) else None)
     top = max(r for r in ratios if r) * 2.6
     L = 0.85  # room left of 1x so that the markers of the best maps are fully visible
     for bi, b in enumerate(benches):
         d = data[(hash_, b)]
         best = min(v[idx] for v in d.values() if v)
-        for mi, (key, label, color) in enumerate(MAPS):
+        for mi, (key, label, color, shape) in enumerate(MAPS):
             y = bi + (mi - (n - 1) / 2) * 0.16
             v = d.get(key)
             if v is None:
                 ax.hlines(y, 1, top, color=color, linewidth=0.8, linestyle=(0, (2, 2)))
-                ax.scatter([top / 1.15], [y], s=34, marker="X", facecolor="white", edgecolor=color, linewidth=1.1, zorder=3)
+                ax.scatter([top / 1.15], [y], s=40, marker="X", facecolor="white", edgecolor=color, linewidth=1.1, zorder=3)
                 ax.text(top / 1.3, y, "timeout", ha="right", va="center", fontsize=5.5, color="#52514e")
             else:
                 r = v[idx] / best
                 ax.hlines(y, 1, r, color=color, linewidth=1.2)
-                ax.scatter([r], [y], s=34, color=color, edgecolor="#fcfcfb", linewidth=0.6, zorder=3)
+                ax.scatter([r], [y], s=40, marker=shape, color=color, edgecolor="#fcfcfb", linewidth=0.6, zorder=3)
                 ax.text(r * 1.05, y, "%.2fx (%.4g)" % (r, v[idx]), va="center", fontsize=5.5, color="#52514e")
     ax.set_xscale("log")
     ax.set_xlim(L, top)
@@ -81,7 +83,7 @@ def plot(hash_, idx, title, xlabel, path, skip_small):
     ax.set_axisbelow(True)
     for s in ("top", "right"):
         ax.spines[s].set_visible(False)
-    handles = [Line2D([0], [0], color=c, marker="o", markersize=5, linewidth=1.2, label=l) for _, l, c in MAPS] + \
+    handles = [Line2D([0], [0], color=c, marker=m, markersize=6, linewidth=1.2, label=l) for _, l, c, m in MAPS] + \
               [Line2D([0], [0], color="#52514e", marker="X", markerfacecolor="white", markersize=6, linewidth=0.8,
                       linestyle=(0, (2, 2)), label="timeout (300 s)")]
     # fixed margins in inches: title, then the legend (3 columns x 2 rows), then the plot, so they cannot overlap
