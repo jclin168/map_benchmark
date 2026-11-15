@@ -11,8 +11,8 @@ with `std_hash` and `ankerl_hash`, on the original registered benchmarks (except
   `FlatMap64` case, the RSS/VmPeak recording and changes in `src/app/bench.h` and `main.cpp`, whose effect on the timing was not checked), built with sflat at a0ac82a (main, with the performance changes of
   jclin168/sflat_hash_map#30). It is **not** the harness of the 2026-11-10 snapshot next to this directory, and the two sets of
   numbers are not comparable.
-- bflat::unordered_flat_map (jclin168/bflat_hash_map, branch `review-fixes` at 46abbc8: main 663183f plus the fixes from a code
-  review, see below) was added **a day later** with the same harness (610a6ab), machine and settings (`progress_bflat.log`; the
+- bflat::unordered_flat_map (jclin168/bflat_hash_map, main ed5b7e6, which is 663183f plus the fixes from a code review, merged
+  as bflat_hash_map#3; the run used the same code at 46abbc8; see below) was added **a day later** with the same harness (610a6ab), machine and settings (`progress_bflat.log`; the
   effective clock was 1.27 to 1.37, one reading of 1.274 before its `Copy` run, otherwise 1.32 to 1.37). The other five maps were
   not rerun.
 - "Peak MB" is the memory the benchmark itself reports for the whole process, including temporaries and allocator retention.
