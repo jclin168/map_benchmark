@@ -1,0 +1,3 @@
+"bflat::unordered_flat_map (reseed avalanching)"; "std::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.573526; 148.398
+"bflat::unordered_flat_map (reseed avalanching)"; "std::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.0348885; 148.398
+"bflat::unordered_flat_map (reseed avalanching)"; "std::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 0.649912; 282.777
