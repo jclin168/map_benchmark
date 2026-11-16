@@ -1,5 +1,5 @@
-"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 2.13503; 125.98
-"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 2.11262; 127.664
-"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 1.03647; 127.664
-"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.985975; 127.664
-"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 1.0067; 127.664
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 2.10024; 125.977
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 2.08957; 127.66
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 1.03683; 127.66
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.986439; 127.66
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 1.00718; 127.66

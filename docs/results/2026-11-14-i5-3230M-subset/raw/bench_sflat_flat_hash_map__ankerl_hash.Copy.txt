@@ -1,2 +1,2 @@
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "Copy"; "01"; "copy ctor"; 300019900; 0.911329; 73.8633
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "Copy"; "02"; "copy assignment"; 600039800; 0.523289; 75.1758
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "Copy"; "01"; "copy ctor"; 300019900; 0.872696; 73.9219
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "Copy"; "02"; "copy assignment"; 600039800; 0.487561; 75.2344

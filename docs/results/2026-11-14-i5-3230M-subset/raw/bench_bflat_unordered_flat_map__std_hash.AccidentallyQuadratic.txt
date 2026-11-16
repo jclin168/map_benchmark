@@ -1,3 +1,3 @@
-"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.572307; 148.273
-"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.113829; 148.273
-"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 31.4621; 272.711
+"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.571114; 148.41
+"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.0349008; 148.41
+"bflat::unordered_flat_map"; "std::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 0.651435; 282.664

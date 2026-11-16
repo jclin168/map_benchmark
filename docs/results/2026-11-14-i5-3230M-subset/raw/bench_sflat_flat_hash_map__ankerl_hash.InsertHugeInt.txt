@@ -1,5 +1,5 @@
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 8.87205; 1266.56
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.0114348; 1266.56
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 8.74343; 1266.56
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 13.0285; 1266.56
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.0166143; 1266.56
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 8.92236; 1266.53
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.0113831; 1266.53
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 8.82201; 1266.53
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 13.1901; 1266.53
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.0163489; 1266.53

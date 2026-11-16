@@ -1,2 +1,2 @@
-"bflat::unordered_flat_map"; "std::hash"; "IterateIntegers"; "01"; "iterate while adding"; 20833333325000; 14.1494; 1.88672
-"bflat::unordered_flat_map"; "std::hash"; "IterateIntegers"; "02"; "iterate while removing"; 62498750000000; 13.9031; 1.88672
+"bflat::unordered_flat_map"; "std::hash"; "IterateIntegers"; "01"; "iterate while adding"; 20833333325000; 4.16842; 1.88672
+"bflat::unordered_flat_map"; "std::hash"; "IterateIntegers"; "02"; "iterate while removing"; 62498750000000; 4.54186; 1.88672

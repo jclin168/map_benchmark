@@ -1,2 +1,2 @@
-"bflat::unordered_flat_map"; "std::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 1.96815; 1.19141
-"bflat::unordered_flat_map"; "std::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 2.72158; 2.0625
+"bflat::unordered_flat_map"; "std::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 1.93804; 1.30469
+"bflat::unordered_flat_map"; "std::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 2.67739; 2.05078
