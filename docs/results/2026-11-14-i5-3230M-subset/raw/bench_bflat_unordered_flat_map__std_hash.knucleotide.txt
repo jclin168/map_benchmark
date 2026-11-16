@@ -1,0 +1,5 @@
+"bflat::unordered_flat_map"; "std::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 2.06882; 125.98
+"bflat::unordered_flat_map"; "std::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 2.05247; 127.664
+"bflat::unordered_flat_map"; "std::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 0.991839; 127.664
+"bflat::unordered_flat_map"; "std::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.942139; 127.664
+"bflat::unordered_flat_map"; "std::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 1.2335; 127.664

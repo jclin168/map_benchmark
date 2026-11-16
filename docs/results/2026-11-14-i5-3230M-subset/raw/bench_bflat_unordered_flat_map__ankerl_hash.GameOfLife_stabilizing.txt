@@ -1,0 +1,4 @@
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.0730989; 0.433594
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 1.15966; 0.867188
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 2.07324; 0.992188
+"bflat::unordered_flat_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 9.17673; 1.11719

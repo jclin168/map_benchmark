@@ -1,0 +1,10 @@
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "01"; "0% success, 0x00000000ffffffff"; 32264; 4.11314; 20.4102
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "02"; "0% success, 0xffffffff00000000"; 25224; 4.12307; 22.2812
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "03"; "25% success, 0x00000000ffffffff"; 125017726; 9.02217; 22.2812
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "04"; "25% success, 0xffffffff00000000"; 125017856; 9.45745; 22.2852
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "05"; "50% success, 0x00000000ffffffff"; 250010298; 10.9571; 22.2891
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "06"; "50% success, 0xffffffff00000000"; 250012820; 10.7036; 22.2891
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "07"; "75% success, 0x00000000ffffffff"; 374995622; 10.9303; 22.2891
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "08"; "75% success, 0xffffffff00000000"; 374995604; 10.951; 22.2891
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "09"; "100% success, 0x00000000ffffffff"; 499988041; 10.6913; 22.2891
+"bflat::unordered_flat_map"; "std::hash"; "RandomFind_500000"; "10"; "100% success, 0xffffffff00000000"; 499988041; 10.6626; 22.2891

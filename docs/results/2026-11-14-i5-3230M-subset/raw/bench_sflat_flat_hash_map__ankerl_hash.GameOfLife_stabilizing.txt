@@ -1,4 +1,4 @@
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.077648; 0.542969
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 1.29806; 0.8125
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 2.39506; 0.8125
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 10.754; 0.9375
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "01"; "R-pentomino"; 116; 0.0774555; 0.613281
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "02"; "Acorn"; 633; 1.29886; 0.890625
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "03"; "Jaydot"; 1124; 2.38967; 0.890625
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_stabilizing"; "04"; "Bunnies"; 1744; 10.6536; 1.01562

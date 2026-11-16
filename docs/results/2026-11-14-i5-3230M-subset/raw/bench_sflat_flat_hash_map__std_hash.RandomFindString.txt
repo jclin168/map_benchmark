@@ -1,5 +1,5 @@
-"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "01"; "0% 100 byte"; 1721; 3.71305; 17.3047
-"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "02"; "25% 100 byte"; 24999056; 7.08434; 21.5078
-"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "03"; "50% 100 byte"; 49996344; 9.58566; 21.5078
-"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "04"; "75% 100 byte"; 74992237; 11.4429; 21.5078
-"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "05"; "100% 100 byte"; 99989650; 12.711; 21.5078
+"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "01"; "0% 100 byte"; 1721; 3.66878; 17.3242
+"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "02"; "25% 100 byte"; 24999056; 6.69406; 19.5312
+"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "03"; "50% 100 byte"; 49996344; 9.45169; 21.5273
+"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "04"; "75% 100 byte"; 74992237; 11.7128; 21.5273
+"sflat::flat_hash_map"; "std::hash"; "RandomFindString"; "05"; "100% 100 byte"; 99989650; 12.5468; 21.5273

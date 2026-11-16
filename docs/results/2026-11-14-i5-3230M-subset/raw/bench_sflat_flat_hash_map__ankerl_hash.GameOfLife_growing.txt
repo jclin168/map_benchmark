@@ -1,2 +1,2 @@
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 2.33815; 1.17578
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 3.23171; 2.24609
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "01"; "Gotts dots"; 4599; 2.32052; 1.36719
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "GameOfLife_growing"; "02"; "Puffer 2"; 7400; 3.20942; 2.26953

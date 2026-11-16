@@ -1,5 +1,5 @@
-"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 2.37667; 126.113
-"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 2.35005; 127.918
-"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 0.857619; 127.918
-"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.790748; 127.918
-"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 2.2364; 127.918
+"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "01"; "Count GGTATTTTAATTTATAGT"; 893; 2.37333; 126.117
+"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "02"; "Count GGTATTTTAATT"; 893; 2.373; 127.922
+"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "03"; "Count GGTATT"; 47336; 0.962424; 127.922
+"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "04"; "Count GGTA"; 446535; 0.843983; 127.922
+"sflat::flat_hash_map"; "std::hash"; "knucleotide"; "05"; "Count GGT"; 1471758; 0.781085; 127.922

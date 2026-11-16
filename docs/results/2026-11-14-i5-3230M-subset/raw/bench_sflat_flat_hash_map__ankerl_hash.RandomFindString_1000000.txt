@@ -1,5 +1,5 @@
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "01"; "0% 13 byte"; 26187; 7.38211; 86.5742
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "02"; "25% 13 byte"; 50017770; 12.5083; 87.1953
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "03"; "50% 13 byte"; 100012105; 16.9333; 87.1992
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "04"; "75% 13 byte"; 150003241; 20.3128; 87.1992
-"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "05"; "100% 13 byte"; 199997474; 22.2861; 87.1992
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "01"; "0% 13 byte"; 26187; 7.43734; 86.5312
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "02"; "25% 13 byte"; 50017770; 12.2784; 87.2773
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "03"; "50% 13 byte"; 100012105; 16.2227; 87.2773
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "04"; "75% 13 byte"; 150003241; 20.2367; 87.2773
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "RandomFindString_1000000"; "05"; "100% 13 byte"; 199997474; 21.4566; 87.2773

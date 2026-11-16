@@ -1,0 +1,4 @@
+"bflat::unordered_flat_map"; "std::hash"; "RandomDistinct2"; "01"; "5% distinct"; 549985352; 2.26747; 42.3828
+"bflat::unordered_flat_map"; "std::hash"; "RandomDistinct2"; "02"; "25% distinct"; 149979034; 3.03374; 146.766
+"bflat::unordered_flat_map"; "std::hash"; "RandomDistinct2"; "03"; "50% distinct"; 249981806; 3.61306; 290.762
+"bflat::unordered_flat_map"; "std::hash"; "RandomDistinct2"; "04"; "100% distinct"; 50291811; 4.74927; 662.766

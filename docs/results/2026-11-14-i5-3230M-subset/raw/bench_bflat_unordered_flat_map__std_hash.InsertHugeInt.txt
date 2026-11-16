@@ -1,0 +1,5 @@
+"bflat::unordered_flat_map"; "std::hash"; "InsertHugeInt"; "01"; "insert 100M int"; 98841586; 10.8169; 1490.41
+"bflat::unordered_flat_map"; "std::hash"; "InsertHugeInt"; "02"; "clear 100M int"; 0; 0.0115581; 1490.41
+"bflat::unordered_flat_map"; "std::hash"; "InsertHugeInt"; "03"; "reinsert 100M int"; 98843646; 9.99242; 1490.41
+"bflat::unordered_flat_map"; "std::hash"; "InsertHugeInt"; "04"; "remove 100M int"; 0; 14.4164; 1490.41
+"bflat::unordered_flat_map"; "std::hash"; "InsertHugeInt"; "05"; "destructor empty map"; 0; 0.00570526; 1490.41
