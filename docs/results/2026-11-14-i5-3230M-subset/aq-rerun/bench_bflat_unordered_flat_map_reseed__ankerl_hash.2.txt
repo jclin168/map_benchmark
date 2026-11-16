@@ -1,0 +1,3 @@
+"bflat::unordered_flat_map (reseed avalanching)"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.571885; 148.398
+"bflat::unordered_flat_map (reseed avalanching)"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.0346229; 148.398
+"bflat::unordered_flat_map (reseed avalanching)"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 0.996361; 282.781

@@ -1,0 +1,3 @@
+"std::unordered_map"; "std::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 4.28899; 397.461
+"std::unordered_map"; "std::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.634696; 397.77
+"std::unordered_map"; "std::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 4.18548; 795.047

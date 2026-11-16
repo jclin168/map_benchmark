@@ -1,0 +1,3 @@
+"sflat::flat_hash_map"; "std::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.573275; 160.555
+"sflat::flat_hash_map"; "std::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.0507821; 160.555
+"sflat::flat_hash_map"; "std::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 0.907321; 308.805

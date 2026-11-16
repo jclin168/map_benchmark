@@ -1,0 +1,3 @@
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "01"; "insert 10M int"; 9988513; 0.598144; 160.434
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "02"; "iterate"; 18446739465311920326; 0.0510711; 160.434
+"sflat::flat_hash_map"; "ankerl::unordered_dense::hash"; "AccidentallyQuadratic"; "03"; "iterate & copy"; 9988513; 0.959639; 308.684

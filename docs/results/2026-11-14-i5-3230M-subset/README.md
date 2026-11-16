@@ -98,3 +98,40 @@ From the numbers (`std_hash` unless said otherwise):
 - Peak memory is mixed: bflat is the smallest in AccidentallyQuadratic (283 MB with `std_hash`, 273 MB with `ankerl_hash`; sflat 309 MB) and below sflat in RandomInsertErase
   (270 MB against 289 MB), and above it in RandomFind_500000 (22.3 MB against 20.7 MB) and RandomInsertEraseStrings
   (77.5 MB against 73.3 MB).
+
+## AccidentallyQuadratic, three runs
+
+AccidentallyQuadratic was run again three times for each of the six maps and both hashes, and for a seventh build of bflat
+with `-DBFLAT_RESEED_AVALANCHING=1` (`src/maps/bflat_unordered_flat_map_reseed`), with the same binaries and settings
+([aq-rerun](aq-rerun), `run.sh`; effective clock 1.33 to 1.37, one reading of 1.166). The three runs differ by less than 3%.
+Seconds, median of three:
+
+| map | hash | insert 10M | iterate | iterate & copy | total | peak MB |
+|---|---|---:|---:|---:|---:|---:|
+| bflat | std_hash | 0.57 | 0.035 | 0.66 | **1.26** | 283 |
+| bflat | ankerl_hash | 0.57 | 0.034 | 31.13 | 31.7 | 273 |
+| bflat, reseed avalanching | ankerl_hash | 0.57 | 0.034 | 1.00 | 1.60 | 283 |
+| bflat, reseed avalanching | std_hash | 0.57 | 0.035 | 0.65 | 1.26 | 283 |
+| sflat | std_hash | 0.60 | 0.051 | 0.92 | 1.57 | 309 |
+| sflat | ankerl_hash | 0.59 | 0.051 | 0.96 | 1.60 | 309 |
+| ankerl | both | 1.62 | 0.007 | 1.50 | 3.1 | 381 |
+| boost | both | 1.20 | 0.040 | 23.98 | 25.2 | 296 |
+| std::unordered_map | std_hash / ankerl_hash | 4.35 / 4.60 | 0.63 | 4.24 / 4.42 | 9.2 / 9.7 | 795 |
+| absl | std_hash / ankerl_hash | 1.46 / 1.23 | 0.08 | 39.65 / 12.36 | 41.1 / 13.7 | 327 |
+
+With the reseed for avalanching hashes on, bflat with `ankerl_hash` takes 1.6 s instead of 31.7 s (as sflat); with `std_hash`
+the option changes nothing. It is off by default in bflat because a reseeded table of an avalanching hash is slower afterwards
+(find about 2.5x, insert about 1.4x; see the bflat README).
+
+## Why bflat is slower in Copy
+
+Copy copies a table of 1M elements 200 times by the copy constructor and 200 times by copy assignment. A standalone
+reproduction (bflat 4aa8c39, sflat a0ac82a) gives 1.47 s and 1.47 s for bflat, 0.87 s and 2.31 s for bflat with
+`BFLAT_USE_MMAP=0`, and 0.77 s and 0.49 s for sflat. The causes:
+
+- Each copy gets new pages from `mmap`, which the kernel zeroes first (30 MB per copy), and returns them with `munmap`; sflat
+  uses `malloc`, which reuses the memory freed by the previous copy. With `BFLAT_USE_MMAP=0` the constructor takes 0.87 s.
+- bflat copies the table at its full capacity (1.97M slots at load 0.51, just after a 2x growth), empty slots included; sflat
+  copies a sparse table by inserting into a smaller one. This is most of the memory difference (131 MB against 75 MB).
+- bflat's copy assignment builds a full copy before it frees the old storage, and never reuses the storage it has (four tables
+  at once); boost's assignment reuses it (0.85 s against 4.74 s for its constructor).
